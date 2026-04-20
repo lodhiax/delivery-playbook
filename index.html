@@ -417,7 +417,218 @@
   .delay-3 { animation-delay: 0.3s; }
   .delay-4 { animation-delay: 0.4s; }
 
-  /* ---- RESPONSIVE ---- */
+  /* ---- IMPACT STATS ---- */
+  .impact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 14px;
+  }
+
+  .stat-card {
+    background: var(--ink);
+    color: var(--white);
+    border-radius: 8px;
+    padding: 28px 24px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.2s;
+  }
+
+  .stat-card:hover { transform: translateY(-3px); }
+
+  .stat-card::before {
+    content: '';
+    position: absolute;
+    bottom: 0; right: 0;
+    width: 80px; height: 80px;
+    background: radial-gradient(circle, rgba(200,169,110,0.2), transparent 70%);
+    border-radius: 50%;
+  }
+
+  .stat-value {
+    font-family: 'Playfair Display', serif;
+    font-size: 42px;
+    font-weight: 900;
+    color: var(--accent);
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+
+  .stat-label {
+    margin-top: 8px;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #9ca3af;
+    font-weight: 500;
+  }
+
+  .stat-note {
+    margin-top: 6px;
+    font-size: 11px;
+    color: #6b7280;
+  }
+
+  /* ---- INDUSTRIES ---- */
+  .industry-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 12px;
+  }
+
+  .industry-card {
+    background: var(--white);
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    padding: 20px 16px;
+    text-align: center;
+    transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+    cursor: default;
+  }
+
+  .industry-card:hover {
+    border-color: var(--accent);
+    box-shadow: 0 4px 16px rgba(200,169,110,0.15);
+    transform: translateY(-2px);
+  }
+
+  .industry-icon {
+    font-size: 28px;
+    margin-bottom: 10px;
+    display: block;
+  }
+
+  .industry-name {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    color: var(--ink);
+    line-height: 1.4;
+  }
+
+  /* ---- TIMELINE ---- */
+  .timeline {
+    position: relative;
+    padding-left: 0;
+  }
+
+  .timeline-line {
+    position: absolute;
+    left: 130px;
+    top: 0; bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--accent), var(--rule));
+  }
+
+  .timeline-item {
+    display: grid;
+    grid-template-columns: 120px 32px 1fr;
+    gap: 0 16px;
+    margin-bottom: 10px;
+    align-items: start;
+  }
+
+  .timeline-date {
+    text-align: right;
+    padding-top: 18px;
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.04em;
+    font-weight: 500;
+    line-height: 1.4;
+  }
+
+  .timeline-dot-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+  }
+
+  .timeline-dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: 3px solid var(--paper);
+    box-shadow: 0 0 0 2px var(--accent);
+    flex-shrink: 0;
+    z-index: 1;
+  }
+
+  .timeline-card {
+    background: var(--white);
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    padding: 18px 20px;
+    margin-bottom: 4px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+
+  .timeline-card:hover {
+    border-color: var(--accent);
+    box-shadow: 0 3px 14px rgba(200,169,110,0.12);
+  }
+
+  .timeline-role {
+    font-family: 'Playfair Display', serif;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    margin-bottom: 2px;
+  }
+
+  .timeline-company {
+    font-size: 13px;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  .timeline-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+
+  .tl-badge {
+    font-size: 10px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    background: var(--accent-light);
+    color: #7c5c1e;
+    padding: 3px 8px;
+    border-radius: 3px;
+    font-weight: 600;
+  }
+
+  .timeline-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 8px;
+  }
+
+  .tl-tech {
+    font-size: 10px;
+    background: #f1f5f9;
+    color: #475569;
+    padding: 2px 7px;
+    border-radius: 3px;
+    font-weight: 500;
+  }
+
+  @media (max-width: 640px) {
+    .timeline-line { left: 0; display: none; }
+    .timeline-item { grid-template-columns: 1fr; }
+    .timeline-date { text-align: left; padding-top: 0; margin-bottom: 4px; }
+    .timeline-dot-col { display: none; }
+    .impact-grid { grid-template-columns: 1fr 1fr; }
+    .industry-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+
+
   @media (max-width: 640px) {
     .header-inner { grid-template-columns: 1fr; }
     .header-meta { text-align: left; }
@@ -452,6 +663,9 @@
 <nav>
   <div class="nav-inner">
     <a href="#summary">Summary</a>
+    <a href="#impact">Impact</a>
+    <a href="#industries">Industries</a>
+    <a href="#timeline">Experience</a>
     <a href="#competencies">Competencies</a>
     <a href="#artifacts">Artifacts</a>
   </div>
@@ -472,10 +686,191 @@
     </div>
   </section>
 
+  <!-- IMPACT STATS -->
+  <section id="impact" style="margin-bottom: 50px;">
+    <div class="section-label">
+      <span class="num">02</span>
+      <h2>Impact by the Numbers</h2>
+    </div>
+    <div class="impact-grid">
+      <div class="stat-card">
+        <div class="stat-value">$55M</div>
+        <div class="stat-label">Budget Managed</div>
+        <div class="stat-note">Across enterprise programs & portfolios</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value">20+</div>
+        <div class="stat-label">Years Experience</div>
+        <div class="stat-note">From systems engineering to TPM leadership</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value">125</div>
+        <div class="stat-label">FTEs Led</div>
+        <div class="stat-note">Cross-functional teams at peak program scale</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value">10+</div>
+        <div class="stat-label">Vendors Managed</div>
+        <div class="stat-note">External partners across concurrent programs</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value">25%+</div>
+        <div class="stat-label">Sales Growth Driven</div>
+        <div class="stat-note">Through new business & digital initiatives</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INDUSTRIES -->
+  <section id="industries" style="margin-bottom: 50px;">
+    <div class="section-label">
+      <span class="num">03</span>
+      <h2>Industries Served</h2>
+    </div>
+    <div class="industry-grid">
+      <div class="industry-card">
+        <span class="industry-icon">🏥</span>
+        <div class="industry-name">Healthcare &amp; Medical Devices</div>
+      </div>
+      <div class="industry-card">
+        <span class="industry-icon">🏦</span>
+        <div class="industry-name">Banking &amp; Financial Services</div>
+      </div>
+      <div class="industry-card">
+        <span class="industry-icon">📦</span>
+        <div class="industry-name">Logistics &amp; Supply Chain</div>
+      </div>
+      <div class="industry-card">
+        <span class="industry-icon">🛒</span>
+        <div class="industry-name">E-Commerce &amp; Retail</div>
+      </div>
+      <div class="industry-card">
+        <span class="industry-icon">⛽</span>
+        <div class="industry-name">Oil &amp; Gas</div>
+      </div>
+      <div class="industry-card">
+        <span class="industry-icon">🎓</span>
+        <div class="industry-name">Higher Education</div>
+      </div>
+      <div class="industry-card">
+        <span class="industry-icon">📱</span>
+        <div class="industry-name">Consumer Electronics</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CAREER TIMELINE -->
+  <section id="timeline" style="margin-bottom: 50px;">
+    <div class="section-label">
+      <span class="num">04</span>
+      <h2>Career Timeline</h2>
+    </div>
+    <div class="timeline">
+      <div class="timeline-line"></div>
+
+      <!-- Creatics -->
+      <div class="timeline-item">
+        <div class="timeline-date">Jun 2016<br>Current</div>
+        <div class="timeline-dot-col"><div class="timeline-dot"></div></div>
+        <div class="timeline-card">
+          <div class="timeline-role">Technical Program Manager</div>
+          <div class="timeline-company">Creatics Private Limited</div>
+          <div class="timeline-meta">
+            <span class="tl-badge">Budget $25M</span>
+            <span class="tl-badge">95–125 FTEs</span>
+            <span class="tl-badge">10 Vendors</span>
+            <span class="tl-badge">Consultancy</span>
+          </div>
+          <div class="timeline-tags">
+            <span class="tl-tech">RedHat OpenShift</span>
+            <span class="tl-tech">Temenos Core Banking</span>
+            <span class="tl-tech">SAP S/4 HANA</span>
+            <span class="tl-tech">Apache Kafka</span>
+            <span class="tl-tech">Salesforce CRM</span>
+            <span class="tl-tech">Power BI</span>
+            <span class="tl-tech">OCI DataLake</span>
+            <span class="tl-tech">Warehouse Mgmt</span>
+            <span class="tl-tech">E-Commerce</span>
+            <span class="tl-tech">Fleet Mgmt</span>
+            <span class="tl-tech">HCM</span>
+            <span class="tl-tech">API Gateway</span>
+            <span class="tl-tech">F5 Load Balancer</span>
+            <span class="tl-tech">Core Banking</span>
+            <span class="tl-tech">Loan Origination</span>
+            <span class="tl-tech">SQL</span>
+            <span class="tl-tech">BRD / FRD</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Abbott -->
+      <div class="timeline-item">
+        <div class="timeline-date">Feb 2015<br>May 2016</div>
+        <div class="timeline-dot-col"><div class="timeline-dot"></div></div>
+        <div class="timeline-card">
+          <div class="timeline-role">Project Manager</div>
+          <div class="timeline-company">Abbott Medical Optics</div>
+          <div class="timeline-meta">
+            <span class="tl-badge">12–15 FTEs</span>
+            <span class="tl-badge">Medical Devices</span>
+          </div>
+          <div class="timeline-tags">
+            <span class="tl-tech">VISX Star S4 IR</span>
+            <span class="tl-tech">iFS Femtosecond Laser</span>
+            <span class="tl-tech">Wavescan Wavefront</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- BD Biosciences -->
+      <div class="timeline-item">
+        <div class="timeline-date">Jul 2011<br>Jan 2015</div>
+        <div class="timeline-dot-col"><div class="timeline-dot"></div></div>
+        <div class="timeline-card">
+          <div class="timeline-role">Sr. Systems Engineer</div>
+          <div class="timeline-company">BD Biosciences</div>
+          <div class="timeline-meta">
+            <span class="tl-badge">15–20 FTEs</span>
+            <span class="tl-badge">IVD Systems</span>
+          </div>
+          <div class="timeline-tags">
+            <span class="tl-tech">BD FACSuite™</span>
+            <span class="tl-tech">Flow Cytometry</span>
+            <span class="tl-tech">FDA Compliance</span>
+            <span class="tl-tech">ISO 13485</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Medtronic -->
+      <div class="timeline-item">
+        <div class="timeline-date">Sep 2006<br>Jun 2011</div>
+        <div class="timeline-dot-col"><div class="timeline-dot"></div></div>
+        <div class="timeline-card">
+          <div class="timeline-role">Systems Engineer</div>
+          <div class="timeline-company">Medtronic Minimed</div>
+          <div class="timeline-meta">
+            <span class="tl-badge">Medical Devices</span>
+            <span class="tl-badge">IEC 62304</span>
+          </div>
+          <div class="timeline-tags">
+            <span class="tl-tech">MySentry System</span>
+            <span class="tl-tech">CareLink Pro</span>
+            <span class="tl-tech">QTP Automation</span>
+            <span class="tl-tech">Risk Management</span>
+          </div>
+        </div>
+      </div>
+
+
+
+    </div>
+  </section>
+
   <!-- COMPETENCIES -->
   <section id="competencies" style="margin-bottom: 50px;">
     <div class="section-label">
-      <span class="num">02</span>
+      <span class="num">05</span>
       <h2>Core Competencies</h2>
     </div>
     <div class="competency-grid">
@@ -495,7 +890,7 @@
   <!-- ARTIFACTS -->
   <section id="artifacts">
     <div class="section-label">
-      <span class="num">03</span>
+      <span class="num">06</span>
       <h2>Delivery Artifacts</h2>
     </div>
     <div class="artifact-grid">
