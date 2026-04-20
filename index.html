@@ -17,19 +17,29 @@
   header {
     background: linear-gradient(135deg, #111827, #1e3a8a);
     color: white;
-    padding: 50px 20px;
+    padding: 45px 20px;
     text-align: center;
   }
 
   header h1 {
     margin: 0;
-    font-size: 38px;
+    font-size: 36px;
   }
 
   header p {
-    margin-top: 10px;
+    margin-top: 8px;
     color: #cbd5e1;
-    font-size: 14px;
+    font-size: 13px;
+  }
+
+  .header-links {
+    margin-top: 12px;
+  }
+
+  .header-links a {
+    color: #93c5fd;
+    text-decoration: none;
+    font-size: 13px;
   }
 
   .container {
@@ -39,66 +49,70 @@
   }
 
   h2 {
-    border-left: 5px solid #2563eb;
+    border-left: 4px solid #2563eb;
     padding-left: 10px;
-    margin-top: 40px;
+    margin-top: 35px;
+    font-size: 20px;
   }
 
   .section {
     background: white;
-    padding: 25px;
+    padding: 22px;
     border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
-    margin-top: 20px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.06);
+    margin-top: 15px;
   }
 
-  h3 {
-    margin-top: 25px;
-    color: #111827;
+  /* Compact artifact layout */
+  .artifact {
+    border-bottom: 1px solid #e5e7eb;
+    padding: 14px 0;
   }
 
-  ul {
-    margin-top: 10px;
-    padding-left: 20px;
+  .artifact:last-child {
+    border-bottom: none;
   }
 
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    margin-top: 20px;
+  .artifact-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 
-  .card {
-    background: white;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    transition: transform 0.2s ease;
+  .artifact-title {
+    font-weight: 600;
+    font-size: 14px;
   }
 
-  .card:hover {
-    transform: translateY(-4px);
+  .tag {
+    font-size: 11px;
+    background: #eef2ff;
+    color: #3730a3;
+    padding: 3px 8px;
+    border-radius: 999px;
   }
 
-  .card h3 {
-    margin-top: 0;
-  }
-
-  .card p {
+  .artifact p {
+    margin: 6px 0;
     font-size: 13px;
+    color: #4b5563;
+  }
+
+  .reflection {
+    font-size: 12px;
     color: #6b7280;
+    font-style: italic;
   }
 
   .btn {
     display: inline-block;
-    margin-top: 10px;
-    padding: 8px 12px;
+    margin-top: 6px;
+    padding: 6px 10px;
     background: #2563eb;
     color: white;
     text-decoration: none;
     border-radius: 6px;
-    font-size: 13px;
+    font-size: 12px;
   }
 
   footer {
@@ -115,6 +129,10 @@
 <header>
   <h1>Delivery Playbook</h1>
   <p>Enterprise Transformation | PMO • Strategy • Execution • Governance • Delivery Systems</p>
+
+  <div class="header-links">
+    <a href="https://www.linkedin.com/in/atiflodhi/" target="_blank">LinkedIn Profile</a>
+  </div>
 </header>
 
 <div class="container">
@@ -124,124 +142,134 @@
 <div class="section">
 
 <p>
-Transformation leader specializing in driving enterprise-wide change from strategy definition through execution and sustained adoption. Proven ability to diagnose organizational, process, and governance gaps and apply structured change management to ensure transformations are operationalized—not just approved. Expertise in process optimization using value stream mapping, process decomposition, and decision-rights frameworks to eliminate inefficiencies and accelerate outcomes.
+Transformation leader specializing in enterprise-wide change from strategy to execution. Expertise in converting complex transformation objectives into structured, executable roadmaps with governance, KPIs, and measurable outcomes. Strong experience across PMO leadership, business analysis, architecture alignment, and large-scale program delivery.
 </p>
 
 <p>
-Skilled at converting complex transformation objectives into executable roadmaps with clear ownership, KPIs, and governance models. Recognized for aligning strategic ambition with engineering, financial, and operational constraints to deliver credible, scalable, and measurable business results across cross-functional environments.
-</p>
-
-<p>
-Strong capabilities in Business Analytics, Requirement Elicitation, Software & System Architecture, Governance, and Customer Delivery. Experienced in leading IT and program management teams with budgets up to USD 55M, driving 25%+ growth through new business initiatives and transformation programs.
+Proven ability to lead cross-functional teams, manage multi-million-dollar programs, and drive business transformation through structured delivery frameworks, process optimization, and data-driven decision-making.
 </p>
 
 </div>
 
 <!-- ================= CORE COMPETENCIES ================= -->
 <h2>2. Core Competencies</h2>
-
 <div class="section">
 
-<h3>Program, Product & Project Leadership</h3>
 <ul>
-  <li>Product Management – Market research, competitive analysis, roadmap development, and go-to-market execution.</li>
-  <li>Product validation – User testing, feedback loops, and iterative enhancement cycles.</li>
-  <li>Project Delivery – KPI tracking, execution governance, stakeholder reporting, and delivery assurance.</li>
-  <li>Project Planning – Budgeting, scheduling, resource allocation, and scope control.</li>
-  <li>Resource & Vendor Management – Optimization of consultants, contractors, and external vendors.</li>
-</ul>
-
-<h3>Governance, Risk & ITSM</h3>
-<ul>
-  <li>ITSM – Change, Incident, Problem, Vulnerability, and Security Management.</li>
-  <li>Application Security – Hardening, patching, vulnerability assessments, and compliance execution.</li>
-  <li>Business Continuity – DR planning, failover, HA testing, and resilience frameworks.</li>
-  <li>ISO 27001 – Compliance execution and infrastructure resilience validation.</li>
-</ul>
-
-<h3>Enterprise Architecture</h3>
-<ul>
-  <li>ArchiMate-based enterprise architecture modeling across business, application, and infrastructure layers.</li>
-  <li>BizzDesign Horizon for documentation, analysis, and architectural decision support.</li>
-  <li>Cross-functional alignment across business, technical, and infrastructure teams.</li>
-</ul>
-
-<h3>Financial & Business Modeling</h3>
-<ul>
-  <li>Financial modeling – Costing, RFP support, vendor analysis, and contract negotiation.</li>
-  <li>Business case development – Multi-year feasibility and investment justification.</li>
-  <li>Benchmarking – Vendor evaluation and due diligence analysis.</li>
-</ul>
-
-<h3>Sourcing & Procurement</h3>
-<ul>
-  <li>Supplier evaluation – Cost, quality, reliability, and capability alignment.</li>
-  <li>Vendor performance tracking – SLA compliance and continuous improvement.</li>
-  <li>Procurement collaboration with finance and sourcing teams.</li>
-</ul>
-
-<h3>Business Analytics & Transformation</h3>
-<ul>
-  <li>KPI and metric design for performance, risk, and operational monitoring.</li>
-  <li>Process mapping, root cause analysis, and transformation frameworks.</li>
-  <li>Executive reporting and data-driven decision support.</li>
+<li>Program & Project Delivery</li>
+<li>Product Management & Roadmapping</li>
+<li>Business & Systems Analysis</li>
+<li>PMO Governance & Reporting</li>
+<li>Enterprise Architecture (ArchiMate)</li>
+<li>Financial & Business Modeling</li>
+<li>Risk & Dependency Management (RAID)</li>
+<li>ITSM & Compliance (ISO 27001)</li>
+<li>Vendor & Procurement Management</li>
+<li>Business Transformation & KPI Design</li>
 </ul>
 
 </div>
 
-<!-- ================= DOWNLOADS ================= -->
-<h2>3. Delivery Artifacts</h2>
+<!-- ================= ARTIFACTS ================= -->
+<h2>3. Delivery Artifacts (Contextual Portfolio)</h2>
+<div class="section">
 
-<div class="grid">
-
-  <div class="card">
-    <h3>BRD</h3>
-    <p>Business Requirements Document template for stakeholder alignment.</p>
-    <a class="btn" href="#">Download</a>
+<!-- BRD -->
+<div class="artifact">
+  <div class="artifact-header">
+    <div class="artifact-title">BRD <span class="tag">Requirements</span></div>
   </div>
+  <p>Defines business objectives, stakeholder needs, and functional scope for enterprise initiatives.</p>
+  <div class="reflection">Shows structured thinking and ability to translate business problems into formal requirements.</div>
+  <a class="btn" href="#">Download</a>
+</div>
 
-  <div class="card">
-    <h3>SRS</h3>
-    <p>System requirements specification for scope and design clarity.</p>
-    <a class="btn" href="#">Download</a>
+<!-- PRD -->
+<div class="artifact">
+  <div class="artifact-header">
+    <div class="artifact-title">PRD <span class="tag">Product</span></div>
   </div>
+  <p>Captures product vision, user journeys, features, and acceptance criteria.</p>
+  <div class="reflection">Demonstrates product mindset and ability to define MVP vs long-term roadmap.</div>
+  <a class="btn" href="#">Download</a>
+</div>
 
-  <div class="card">
-    <h3>SDS</h3>
-    <p>System design specification for architecture and solution design.</p>
-    <a class="btn" href="#">Download</a>
+<!-- SRS -->
+<div class="artifact">
+  <div class="artifact-header">
+    <div class="artifact-title">SRS <span class="tag">Systems</span></div>
   </div>
+  <p>Technical specification defining system behavior, constraints, and functional requirements.</p>
+  <div class="reflection">Shows alignment between business requirements and technical implementation.</div>
+  <a class="btn" href="#">Download</a>
+</div>
 
-  <div class="card">
-    <h3>RAID Log</h3>
-    <p>Risk, Assumption, Issue, Dependency governance tracker.</p>
-    <a class="btn" href="#">Download</a>
+<!-- RAID -->
+<div class="artifact">
+  <div class="artifact-header">
+    <div class="artifact-title">RAID <span class="tag">Governance</span></div>
   </div>
+  <p>Tracks risks, assumptions, issues, and dependencies across delivery streams.</p>
+  <div class="reflection">Demonstrates proactive governance and execution risk management.</div>
+  <a class="btn" href="#">Download</a>
+</div>
 
-  <div class="card">
-    <h3>VoC Framework</h3>
-    <p>Voice of Customer capture and prioritization model.</p>
-    <a class="btn" href="#">Download</a>
+<!-- Project Plan -->
+<div class="artifact">
+  <div class="artifact-header">
+    <div class="artifact-title">Plan <span class="tag">Execution</span></div>
   </div>
+  <p>Defines milestones, timelines, resources, and delivery roadmap.</p>
+  <div class="reflection">Shows ability to structure execution and manage cross-functional delivery.</div>
+  <a class="btn" href="#">Download</a>
+</div>
 
-  <div class="card">
-    <h3>Project Plan</h3>
-    <p>Execution roadmap with milestones and dependencies.</p>
-    <a class="btn" href="#">Download</a>
+<!-- KPI Dashboard -->
+<div class="artifact">
+  <div class="artifact-header">
+    <div class="artifact-title">KPIs <span class="tag">Metrics</span></div>
   </div>
+  <p>Defines performance metrics across delivery, quality, financial, and adoption dimensions.</p>
+  <div class="reflection">Highlights data-driven decision-making and performance tracking ability.</div>
+  <a class="btn" href="#">Download</a>
+</div>
 
-  <div class="card">
-    <h3>Executive PPT</h3>
-    <p>Consulting-style reporting and stakeholder presentations.</p>
-    <a class="btn" href="#">Download</a>
+<!-- Architecture -->
+<div class="artifact">
+  <div class="artifact-header">
+    <div class="artifact-title">Arch <span class="tag">Design</span></div>
   </div>
+  <p>Enterprise architecture model showing business, application, and system layers.</p>
+  <div class="reflection">Demonstrates systems thinking and cross-domain architectural alignment.</div>
+  <a class="btn" href="#">Download</a>
+</div>
+
+<!-- Change Plan -->
+<div class="artifact">
+  <div class="artifact-header">
+    <div class="artifact-title">Change <span class="tag">Adoption</span></div>
+  </div>
+  <p>Change management plan covering communication, training, and adoption strategy.</p>
+  <div class="reflection">Shows capability in driving organizational adoption beyond delivery.</div>
+  <a class="btn" href="#">Download</a>
+</div>
+
+<!-- Exec PPT -->
+<div class="artifact">
+  <div class="artifact-header">
+    <div class="artifact-title">Deck <span class="tag">Executive</span></div>
+  </div>
+  <p>Executive presentation summarizing status, risks, decisions, and outcomes.</p>
+  <div class="reflection">Demonstrates executive communication and stakeholder influence.</div>
+  <a class="btn" href="#">Download</a>
+</div>
 
 </div>
 
 </div>
 
 <footer>
-  Delivery Playbook | Structured enterprise transformation and execution framework
+  Delivery Playbook | Structured enterprise transformation & execution framework
 </footer>
 
 </body>
