@@ -3,273 +3,664 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Delivery Playbook | PM/TPM Toolkit</title>
+<title>Atif Lodhi — Delivery Playbook</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
-  body {
-    font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial;
-    margin: 0;
-    background: #f4f6fb;
-    color: #1f2937;
-    line-height: 1.6;
+  :root {
+    --ink: #0d0f14;
+    --paper: #f7f5f0;
+    --accent: #c8a96e;
+    --accent-light: #f0e8d8;
+    --muted: #6b6b6b;
+    --rule: #d8d4cc;
+    --white: #ffffff;
+    --blue: #1e3a8a;
+    --blue-mid: #2563eb;
   }
 
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.65;
+    overflow-x: hidden;
+  }
+
+  /* ---- NOISE TEXTURE OVERLAY ---- */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.5;
+  }
+
+  /* ---- HEADER ---- */
   header {
-    background: linear-gradient(135deg, #111827, #1e3a8a);
-    color: white;
-    padding: 45px 20px;
-    text-align: center;
+    background: var(--ink);
+    color: var(--white);
+    padding: 80px 40px 60px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  header::after {
+    content: 'PM/TPM';
+    position: absolute;
+    right: -20px;
+    bottom: -30px;
+    font-family: 'Playfair Display', serif;
+    font-size: 160px;
+    font-weight: 900;
+    color: rgba(255,255,255,0.03);
+    line-height: 1;
+    pointer-events: none;
+    white-space: nowrap;
+  }
+
+  .header-inner {
+    max-width: 1100px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: end;
+    gap: 20px;
+  }
+
+  .eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 14px;
+    font-weight: 500;
   }
 
   header h1 {
-    margin: 0;
-    font-size: 36px;
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(36px, 6vw, 64px);
+    font-weight: 900;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
   }
 
-  header p {
-    margin-top: 8px;
-    color: #cbd5e1;
-    font-size: 13px;
+  header h1 span {
+    color: var(--accent);
   }
 
-  .header-links {
-    margin-top: 12px;
+  .header-sub {
+    margin-top: 14px;
+    font-size: 14px;
+    color: #9ca3af;
+    max-width: 480px;
+    line-height: 1.7;
   }
 
-  .header-links a {
-    color: #93c5fd;
+  .header-meta {
+    text-align: right;
+  }
+
+  .linkedin-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.2);
+    color: white;
     text-decoration: none;
-    font-size: 13px;
+    font-size: 12px;
+    letter-spacing: 0.05em;
+    border-radius: 4px;
+    transition: all 0.2s;
+    font-family: 'DM Sans', sans-serif;
   }
 
+  .linkedin-btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  .linkedin-btn svg {
+    width: 14px; height: 14px;
+    fill: currentColor;
+  }
+
+  /* ---- NAV BAR ---- */
+  nav {
+    background: var(--white);
+    border-bottom: 1px solid var(--rule);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .nav-inner {
+    max-width: 1100px;
+    margin: auto;
+    display: flex;
+    gap: 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .nav-inner::-webkit-scrollbar { display: none; }
+
+  .nav-inner a {
+    padding: 14px 20px;
+    text-decoration: none;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    white-space: nowrap;
+    transition: color 0.2s;
+    border-bottom: 2px solid transparent;
+    font-weight: 500;
+  }
+
+  .nav-inner a:hover {
+    color: var(--ink);
+    border-bottom-color: var(--accent);
+  }
+
+  /* ---- MAIN CONTAINER ---- */
   .container {
     max-width: 1100px;
     margin: auto;
-    padding: 30px 20px;
+    padding: 50px 20px 80px;
   }
 
-  h2 {
-    border-left: 4px solid #2563eb;
-    padding-left: 10px;
-    margin-top: 35px;
-    font-size: 20px;
+  /* ---- SECTION TITLES ---- */
+  .section-label {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 24px;
   }
 
-  .section {
-    background: white;
+  .section-label .num {
+    font-family: 'Playfair Display', serif;
+    font-size: 13px;
+    color: var(--accent);
+    font-weight: 700;
+  }
+
+  .section-label h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--rule);
+  }
+
+  /* ---- CARDS / SECTIONS ---- */
+  .card {
+    background: var(--white);
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    padding: 28px;
+    margin-bottom: 16px;
+  }
+
+  .card p {
+    font-size: 14px;
+    color: #374151;
+    line-height: 1.75;
+  }
+
+  .card p + p {
+    margin-top: 12px;
+  }
+
+  /* ---- COMPETENCY GRID ---- */
+  .competency-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+    gap: 10px;
+  }
+
+  .comp-item {
+    background: var(--white);
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    padding: 14px 16px;
+    font-size: 13px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+
+  .comp-item:hover {
+    border-color: var(--accent);
+    box-shadow: 0 2px 10px rgba(200,169,110,0.15);
+  }
+
+  .comp-dot {
+    width: 6px;
+    height: 6px;
+    background: var(--accent);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  /* ---- ARTIFACTS ---- */
+  .artifact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 14px;
+  }
+
+  .artifact-card {
+    background: var(--white);
+    border: 1px solid var(--rule);
+    border-radius: 8px;
     padding: 22px;
-    border-radius: 12px;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.06);
-    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+    position: relative;
+    overflow: hidden;
   }
 
-  /* Compact artifact layout */
-  .artifact {
-    border-bottom: 1px solid #e5e7eb;
-    padding: 14px 0;
+  .artifact-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent), transparent);
+    opacity: 0;
+    transition: opacity 0.2s;
   }
 
-  .artifact:last-child {
-    border-bottom: none;
+  .artifact-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.09);
+    border-color: #c4bfb6;
   }
 
-  .artifact-header {
+  .artifact-card:hover::before {
+    opacity: 1;
+  }
+
+  .artifact-top {
     display: flex;
     justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 12px;
+  }
+
+  .artifact-icon {
+    width: 36px;
+    height: 36px;
+    background: var(--accent-light);
+    border-radius: 8px;
+    display: flex;
     align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+
+  .artifact-tag {
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    background: var(--ink);
+    color: var(--paper);
+    padding: 3px 8px;
+    border-radius: 3px;
+    font-weight: 500;
   }
 
   .artifact-title {
-    font-weight: 600;
-    font-size: 14px;
+    font-family: 'Playfair Display', serif;
+    font-size: 17px;
+    font-weight: 700;
+    margin-bottom: 6px;
+    letter-spacing: -0.01em;
   }
 
-  .tag {
-    font-size: 11px;
-    background: #eef2ff;
-    color: #3730a3;
-    padding: 3px 8px;
-    border-radius: 999px;
-  }
-
-  .artifact p {
-    margin: 6px 0;
+  .artifact-desc {
     font-size: 13px;
     color: #4b5563;
+    line-height: 1.65;
+    flex: 1;
   }
 
-  .reflection {
-    font-size: 12px;
-    color: #6b7280;
+  .artifact-reflection {
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px dashed var(--rule);
+    font-size: 11.5px;
+    color: var(--muted);
     font-style: italic;
+    line-height: 1.5;
   }
 
-  .btn {
-    display: inline-block;
-    margin-top: 6px;
-    padding: 6px 10px;
-    background: #2563eb;
-    color: white;
+  .artifact-footer {
+    margin-top: 16px;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .dl-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 14px;
+    background: var(--ink);
+    color: var(--white);
     text-decoration: none;
-    border-radius: 6px;
-    font-size: 12px;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    border-radius: 4px;
+    font-weight: 500;
+    transition: background 0.2s;
+    font-family: 'DM Sans', sans-serif;
   }
 
+  .dl-btn:hover {
+    background: var(--blue);
+  }
+
+  .dl-btn svg {
+    width: 12px; height: 12px;
+    fill: currentColor;
+  }
+
+  /* ---- FOOTER ---- */
   footer {
-    text-align: center;
-    padding: 25px;
-    font-size: 12px;
+    background: var(--ink);
     color: #6b7280;
+    text-align: center;
+    padding: 30px;
+    font-size: 12px;
+    letter-spacing: 0.04em;
+  }
+
+  footer span {
+    color: var(--accent);
+  }
+
+  /* ---- ANIMATIONS ---- */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .animate {
+    opacity: 0;
+    animation: fadeUp 0.5s ease forwards;
+  }
+
+  .delay-1 { animation-delay: 0.1s; }
+  .delay-2 { animation-delay: 0.2s; }
+  .delay-3 { animation-delay: 0.3s; }
+  .delay-4 { animation-delay: 0.4s; }
+
+  /* ---- RESPONSIVE ---- */
+  @media (max-width: 640px) {
+    .header-inner { grid-template-columns: 1fr; }
+    .header-meta { text-align: left; }
+    header { padding: 50px 20px 40px; }
+    .artifact-grid { grid-template-columns: 1fr; }
   }
 </style>
 </head>
 
 <body>
 
+<!-- HEADER -->
 <header>
-  <h1>Delivery Playbook</h1>
-  <p>Enterprise Transformation | PMO • Strategy • Execution • Governance • Delivery Systems</p>
-
-  <div class="header-links">
-    <a href="https://www.linkedin.com/in/atiflodhi/" target="_blank">LinkedIn Profile</a>
+  <div class="header-inner">
+    <div class="animate">
+      <div class="eyebrow">Delivery Playbook</div>
+      <h1>Enterprise<br><span>Transformation</span><br>Toolkit</h1>
+      <p class="header-sub">PMO · Strategy · Execution · Governance · Delivery Systems — converting complex objectives into structured, executable outcomes.</p>
+    </div>
+    <div class="header-meta animate delay-2">
+      <a class="linkedin-btn" href="https://www.linkedin.com/in/atiflodhi/" target="_blank">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+        </svg>
+        Atif Lodhi
+      </a>
+    </div>
   </div>
 </header>
 
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="#summary">Summary</a>
+    <a href="#competencies">Competencies</a>
+    <a href="#artifacts">Artifacts</a>
+  </div>
+</nav>
+
+<!-- MAIN -->
 <div class="container">
 
-<!-- ================= SUMMARY ================= -->
-<h2>1. Summary</h2>
-<div class="section">
+  <!-- SUMMARY -->
+  <section id="summary" style="margin-bottom: 50px;">
+    <div class="section-label">
+      <span class="num">01</span>
+      <h2>Summary</h2>
+    </div>
+    <div class="card">
+      <p>Transformation leader specializing in enterprise-wide change from strategy to execution. Expertise in converting complex transformation objectives into structured, executable roadmaps with governance, KPIs, and measurable outcomes. Strong experience across PMO leadership, business analysis, architecture alignment, and large-scale program delivery.</p>
+      <p>Proven ability to lead cross-functional teams, manage multi-million-dollar programs, and drive business transformation through structured delivery frameworks, process optimization, and data-driven decision-making.</p>
+    </div>
+  </section>
 
-<p>
-Transformation leader specializing in enterprise-wide change from strategy to execution. Expertise in converting complex transformation objectives into structured, executable roadmaps with governance, KPIs, and measurable outcomes. Strong experience across PMO leadership, business analysis, architecture alignment, and large-scale program delivery.
-</p>
+  <!-- COMPETENCIES -->
+  <section id="competencies" style="margin-bottom: 50px;">
+    <div class="section-label">
+      <span class="num">02</span>
+      <h2>Core Competencies</h2>
+    </div>
+    <div class="competency-grid">
+      <div class="comp-item"><span class="comp-dot"></span>Program & Project Delivery</div>
+      <div class="comp-item"><span class="comp-dot"></span>Product Management & Roadmapping</div>
+      <div class="comp-item"><span class="comp-dot"></span>Business & Systems Analysis</div>
+      <div class="comp-item"><span class="comp-dot"></span>PMO Governance & Reporting</div>
+      <div class="comp-item"><span class="comp-dot"></span>Enterprise Architecture (ArchiMate)</div>
+      <div class="comp-item"><span class="comp-dot"></span>Financial & Business Modeling</div>
+      <div class="comp-item"><span class="comp-dot"></span>Risk & Dependency Management (RAID)</div>
+      <div class="comp-item"><span class="comp-dot"></span>ITSM & Compliance (ISO 27001)</div>
+      <div class="comp-item"><span class="comp-dot"></span>Vendor & Procurement Management</div>
+      <div class="comp-item"><span class="comp-dot"></span>Business Transformation & KPI Design</div>
+    </div>
+  </section>
 
-<p>
-Proven ability to lead cross-functional teams, manage multi-million-dollar programs, and drive business transformation through structured delivery frameworks, process optimization, and data-driven decision-making.
-</p>
+  <!-- ARTIFACTS -->
+  <section id="artifacts">
+    <div class="section-label">
+      <span class="num">03</span>
+      <h2>Delivery Artifacts</h2>
+    </div>
+    <div class="artifact-grid">
+
+      <!-- BRD -->
+      <div class="artifact-card">
+        <div class="artifact-top">
+          <div class="artifact-icon">📋</div>
+          <span class="artifact-tag">Requirements</span>
+        </div>
+        <div class="artifact-title">Business Requirements Document</div>
+        <div class="artifact-desc">Defines business objectives, stakeholder needs, and functional scope for enterprise initiatives. Translates organizational goals into formal, actionable requirements.</div>
+        <div class="artifact-reflection">Shows structured thinking and the ability to bridge business problems with formal requirements.</div>
+        <div class="artifact-footer">
+          <a class="dl-btn" href="#">
+            <svg viewBox="0 0 24 24"><path d="M12 16l-6-6h4V4h4v6h4l-6 6zm-7 4h14v-2H5v2z"/></svg>
+            Download BRD
+          </a>
+        </div>
+      </div>
+
+      <!-- PRD -->
+      <div class="artifact-card">
+        <div class="artifact-top">
+          <div class="artifact-icon">🗺️</div>
+          <span class="artifact-tag">Product</span>
+        </div>
+        <div class="artifact-title">Product Requirements Document</div>
+        <div class="artifact-desc">Captures product vision, user journeys, features, and acceptance criteria. Defines the line between MVP scope and longer-term roadmap priorities.</div>
+        <div class="artifact-reflection">Demonstrates product mindset and the ability to define MVP vs long-term roadmap.</div>
+        <div class="artifact-footer">
+          <a class="dl-btn" href="#">
+            <svg viewBox="0 0 24 24"><path d="M12 16l-6-6h4V4h4v6h4l-6 6zm-7 4h14v-2H5v2z"/></svg>
+            Download PRD
+          </a>
+        </div>
+      </div>
+
+      <!-- SRS -->
+      <div class="artifact-card">
+        <div class="artifact-top">
+          <div class="artifact-icon">⚙️</div>
+          <span class="artifact-tag">Systems</span>
+        </div>
+        <div class="artifact-title">System Requirements Specification</div>
+        <div class="artifact-desc">Technical specification defining system behavior, constraints, and functional requirements. Ensures alignment between business requirements and technical implementation.</div>
+        <div class="artifact-reflection">Shows cross-functional alignment between business requirements and technical delivery.</div>
+        <div class="artifact-footer">
+          <a class="dl-btn" href="#">
+            <svg viewBox="0 0 24 24"><path d="M12 16l-6-6h4V4h4v6h4l-6 6zm-7 4h14v-2H5v2z"/></svg>
+            Download SRS
+          </a>
+        </div>
+      </div>
+
+      <!-- RAID -->
+      <div class="artifact-card">
+        <div class="artifact-top">
+          <div class="artifact-icon">🛡️</div>
+          <span class="artifact-tag">Governance</span>
+        </div>
+        <div class="artifact-title">RAID Log</div>
+        <div class="artifact-desc">Tracks risks, assumptions, issues, and dependencies across delivery streams. Provides a single source of truth for proactive governance and execution risk management.</div>
+        <div class="artifact-reflection">Demonstrates proactive governance and execution risk management across programs.</div>
+        <div class="artifact-footer">
+          <a class="dl-btn" href="#">
+            <svg viewBox="0 0 24 24"><path d="M12 16l-6-6h4V4h4v6h4l-6 6zm-7 4h14v-2H5v2z"/></svg>
+            Download RAID
+          </a>
+        </div>
+      </div>
+
+      <!-- Project Plan -->
+      <div class="artifact-card">
+        <div class="artifact-top">
+          <div class="artifact-icon">📅</div>
+          <span class="artifact-tag">Execution</span>
+        </div>
+        <div class="artifact-title">Project Plan</div>
+        <div class="artifact-desc">Defines milestones, timelines, resources, and the full delivery roadmap. Structures execution across cross-functional teams from kickoff through delivery.</div>
+        <div class="artifact-reflection">Shows ability to structure execution and manage cross-functional delivery.</div>
+        <div class="artifact-footer">
+          <a class="dl-btn" href="#">
+            <svg viewBox="0 0 24 24"><path d="M12 16l-6-6h4V4h4v6h4l-6 6zm-7 4h14v-2H5v2z"/></svg>
+            Download Plan
+          </a>
+        </div>
+      </div>
+
+      <!-- KPI Dashboard -->
+      <div class="artifact-card">
+        <div class="artifact-top">
+          <div class="artifact-icon">📊</div>
+          <span class="artifact-tag">Metrics</span>
+        </div>
+        <div class="artifact-title">KPI Framework</div>
+        <div class="artifact-desc">Defines performance metrics across delivery, quality, financial, and adoption dimensions. Enables data-driven decision-making throughout program lifecycle.</div>
+        <div class="artifact-reflection">Highlights data-driven decision-making and performance tracking capability.</div>
+        <div class="artifact-footer">
+          <a class="dl-btn" href="#">
+            <svg viewBox="0 0 24 24"><path d="M12 16l-6-6h4V4h4v6h4l-6 6zm-7 4h14v-2H5v2z"/></svg>
+            Download KPIs
+          </a>
+        </div>
+      </div>
+
+      <!-- Architecture -->
+      <div class="artifact-card">
+        <div class="artifact-top">
+          <div class="artifact-icon">🏗️</div>
+          <span class="artifact-tag">Design</span>
+        </div>
+        <div class="artifact-title">Enterprise Architecture</div>
+        <div class="artifact-desc">Enterprise architecture model showing business, application, and system layers. Demonstrates cross-domain architectural alignment using ArchiMate framework.</div>
+        <div class="artifact-reflection">Demonstrates systems thinking and cross-domain architectural alignment.</div>
+        <div class="artifact-footer">
+          <a class="dl-btn" href="#">
+            <svg viewBox="0 0 24 24"><path d="M12 16l-6-6h4V4h4v6h4l-6 6zm-7 4h14v-2H5v2z"/></svg>
+            Download Arch
+          </a>
+        </div>
+      </div>
+
+      <!-- Change Plan -->
+      <div class="artifact-card">
+        <div class="artifact-top">
+          <div class="artifact-icon">🔄</div>
+          <span class="artifact-tag">Adoption</span>
+        </div>
+        <div class="artifact-title">Change Management Plan</div>
+        <div class="artifact-desc">Covers communication, training, and adoption strategy to drive organizational readiness. Ensures transformation outcomes are sustained beyond delivery.</div>
+        <div class="artifact-reflection">Shows capability in driving organizational adoption beyond delivery completion.</div>
+        <div class="artifact-footer">
+          <a class="dl-btn" href="#">
+            <svg viewBox="0 0 24 24"><path d="M12 16l-6-6h4V4h4v6h4l-6 6zm-7 4h14v-2H5v2z"/></svg>
+            Download Plan
+          </a>
+        </div>
+      </div>
+
+      <!-- Exec Deck -->
+      <div class="artifact-card">
+        <div class="artifact-top">
+          <div class="artifact-icon">🎯</div>
+          <span class="artifact-tag">Executive</span>
+        </div>
+        <div class="artifact-title">Executive Presentation</div>
+        <div class="artifact-desc">Summarizes program status, risks, decisions, and outcomes for C-suite and senior stakeholders. Communicates strategic impact with clarity and precision.</div>
+        <div class="artifact-reflection">Demonstrates executive communication and stakeholder influence skills.</div>
+        <div class="artifact-footer">
+          <a class="dl-btn" href="#">
+            <svg viewBox="0 0 24 24"><path d="M12 16l-6-6h4V4h4v6h4l-6 6zm-7 4h14v-2H5v2z"/></svg>
+            Download Deck
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
 
 </div>
 
-<!-- ================= CORE COMPETENCIES ================= -->
-<h2>2. Core Competencies</h2>
-<div class="section">
-
-<ul>
-<li>Program & Project Delivery</li>
-<li>Product Management & Roadmapping</li>
-<li>Business & Systems Analysis</li>
-<li>PMO Governance & Reporting</li>
-<li>Enterprise Architecture (ArchiMate)</li>
-<li>Financial & Business Modeling</li>
-<li>Risk & Dependency Management (RAID)</li>
-<li>ITSM & Compliance (ISO 27001)</li>
-<li>Vendor & Procurement Management</li>
-<li>Business Transformation & KPI Design</li>
-</ul>
-
-</div>
-
-<!-- ================= ARTIFACTS ================= -->
-<h2>3. Delivery Artifacts (Contextual Portfolio)</h2>
-<div class="section">
-
-<!-- BRD -->
-<div class="artifact">
-  <div class="artifact-header">
-    <div class="artifact-title">BRD <span class="tag">Requirements</span></div>
-  </div>
-  <p>Defines business objectives, stakeholder needs, and functional scope for enterprise initiatives.</p>
-  <div class="reflection">Shows structured thinking and ability to translate business problems into formal requirements.</div>
-  <a class="btn" href="#">Download</a>
-</div>
-
-<!-- PRD -->
-<div class="artifact">
-  <div class="artifact-header">
-    <div class="artifact-title">PRD <span class="tag">Product</span></div>
-  </div>
-  <p>Captures product vision, user journeys, features, and acceptance criteria.</p>
-  <div class="reflection">Demonstrates product mindset and ability to define MVP vs long-term roadmap.</div>
-  <a class="btn" href="#">Download</a>
-</div>
-
-<!-- SRS -->
-<div class="artifact">
-  <div class="artifact-header">
-    <div class="artifact-title">SRS <span class="tag">Systems</span></div>
-  </div>
-  <p>Technical specification defining system behavior, constraints, and functional requirements.</p>
-  <div class="reflection">Shows alignment between business requirements and technical implementation.</div>
-  <a class="btn" href="#">Download</a>
-</div>
-
-<!-- RAID -->
-<div class="artifact">
-  <div class="artifact-header">
-    <div class="artifact-title">RAID <span class="tag">Governance</span></div>
-  </div>
-  <p>Tracks risks, assumptions, issues, and dependencies across delivery streams.</p>
-  <div class="reflection">Demonstrates proactive governance and execution risk management.</div>
-  <a class="btn" href="#">Download</a>
-</div>
-
-<!-- Project Plan -->
-<div class="artifact">
-  <div class="artifact-header">
-    <div class="artifact-title">Plan <span class="tag">Execution</span></div>
-  </div>
-  <p>Defines milestones, timelines, resources, and delivery roadmap.</p>
-  <div class="reflection">Shows ability to structure execution and manage cross-functional delivery.</div>
-  <a class="btn" href="#">Download</a>
-</div>
-
-<!-- KPI Dashboard -->
-<div class="artifact">
-  <div class="artifact-header">
-    <div class="artifact-title">KPIs <span class="tag">Metrics</span></div>
-  </div>
-  <p>Defines performance metrics across delivery, quality, financial, and adoption dimensions.</p>
-  <div class="reflection">Highlights data-driven decision-making and performance tracking ability.</div>
-  <a class="btn" href="#">Download</a>
-</div>
-
-<!-- Architecture -->
-<div class="artifact">
-  <div class="artifact-header">
-    <div class="artifact-title">Arch <span class="tag">Design</span></div>
-  </div>
-  <p>Enterprise architecture model showing business, application, and system layers.</p>
-  <div class="reflection">Demonstrates systems thinking and cross-domain architectural alignment.</div>
-  <a class="btn" href="#">Download</a>
-</div>
-
-<!-- Change Plan -->
-<div class="artifact">
-  <div class="artifact-header">
-    <div class="artifact-title">Change <span class="tag">Adoption</span></div>
-  </div>
-  <p>Change management plan covering communication, training, and adoption strategy.</p>
-  <div class="reflection">Shows capability in driving organizational adoption beyond delivery.</div>
-  <a class="btn" href="#">Download</a>
-</div>
-
-<!-- Exec PPT -->
-<div class="artifact">
-  <div class="artifact-header">
-    <div class="artifact-title">Deck <span class="tag">Executive</span></div>
-  </div>
-  <p>Executive presentation summarizing status, risks, decisions, and outcomes.</p>
-  <div class="reflection">Demonstrates executive communication and stakeholder influence.</div>
-  <a class="btn" href="#">Download</a>
-</div>
-
-</div>
-
-</div>
-
+<!-- FOOTER -->
 <footer>
-  Delivery Playbook | Structured enterprise transformation & execution framework
+  <span>Atif Lodhi</span> · Delivery Playbook · Enterprise Transformation & Execution Framework
 </footer>
 
 </body>
