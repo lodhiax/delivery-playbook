@@ -22,6 +22,7 @@
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
   html { scroll-behavior: smooth; }
 
   body {
@@ -42,11 +43,6 @@
     opacity: 0.5;
   }
 
-  /* ── PAGES ── */
-  .page { display: none; }
-  .page.active { display: block; }
-
-  /* ── HEADER ── */
   header {
     background: var(--ink);
     color: var(--white);
@@ -95,7 +91,9 @@
     letter-spacing: -0.02em;
   }
 
-  header h1 span { color: var(--accent); }
+  header h1 span {
+    color: var(--accent);
+  }
 
   .header-sub {
     margin-top: 14px;
@@ -105,7 +103,9 @@
     line-height: 1.7;
   }
 
-  .header-meta { text-align: right; }
+  .header-meta {
+    text-align: right;
+  }
 
   .linkedin-btn {
     display: inline-flex;
@@ -128,7 +128,6 @@
     color: var(--accent);
   }
 
-  /* ── NAV ── */
   nav {
     background: var(--white);
     border-bottom: 1px solid var(--rule);
@@ -150,15 +149,11 @@
     text-transform: uppercase;
     letter-spacing: 0.08em;
     color: var(--muted);
-    cursor: pointer;
-    border-bottom: 2px solid transparent;
     transition: color 0.15s;
   }
 
   .nav-inner a:hover { color: var(--ink); }
-  .nav-inner a.active { color: var(--ink); border-bottom-color: var(--accent); }
 
-  /* ── GRID ── */
   .container {
     max-width: 1100px;
     margin: auto;
@@ -183,7 +178,7 @@
   .artifact-card {
     background: var(--white);
     border: 1px solid var(--rule);
-    border-radius: 10px;
+    border-radius: 8px;
     padding: 22px;
     transition: box-shadow 0.2s;
   }
@@ -192,20 +187,8 @@
     box-shadow: 0 4px 20px rgba(0,0,0,0.07);
   }
 
-  .card-badge {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 38px;
-    height: 38px;
-    border-radius: 8px;
-    font-size: 12px;
-    font-weight: 700;
-    margin-bottom: 12px;
-  }
-
   .artifact-title {
-    font-size: 15px;
+    font-size: 17px;
     font-weight: 700;
     margin-bottom: 6px;
     color: var(--ink);
@@ -218,371 +201,127 @@
     line-height: 1.6;
   }
 
-  .view-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 6px;
-    width: 100%;
-    padding: 9px 16px;
-    background: var(--ink);
-    color: var(--white);
-    border: none;
-    border-radius: 6px;
-    font-size: 12px;
-    font-weight: 500;
-    font-family: 'DM Sans', sans-serif;
-    letter-spacing: 0.04em;
-    cursor: pointer;
-    transition: opacity 0.15s;
-  }
-
-  .view-btn:hover { opacity: 0.82; }
-
-  /* ── VIEWER PAGE ── */
-  .viewer-header {
-    background: var(--ink);
-    color: var(--white);
-    padding: 18px 40px;
+  .artifact-footer {
+    margin-top: 16px;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 16px;
+    justify-content: flex-end;
   }
 
-  .viewer-back-btn {
+  .dl-btn {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    background: transparent;
-    border: 1px solid rgba(255,255,255,0.2);
-    color: var(--white);
+    gap: 6px;
     padding: 8px 16px;
-    border-radius: 4px;
-    font-size: 12px;
-    font-family: 'DM Sans', sans-serif;
-    cursor: pointer;
-    transition: all 0.2s;
-    letter-spacing: 0.04em;
-  }
-
-  .viewer-back-btn:hover {
-    border-color: var(--accent);
-    color: var(--accent);
-  }
-
-  .viewer-doc-name {
-    font-family: 'Playfair Display', serif;
-    font-size: 20px;
-    font-weight: 700;
+    background: var(--ink);
     color: var(--white);
-    flex: 1;
-    text-align: center;
-  }
-
-  .viewer-badge {
-    font-size: 10px;
-    padding: 4px 10px;
-    border-radius: 20px;
-    background: rgba(200,169,110,0.15);
-    color: var(--accent);
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    border: 1px solid rgba(200,169,110,0.3);
-    white-space: nowrap;
-  }
-
-  .viewer-toolbar {
-    background: var(--white);
-    border-bottom: 1px solid var(--rule);
-    padding: 10px 40px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .toolbar-meta {
-    font-size: 12px;
-    color: var(--muted);
-  }
-
-  .no-dl-pill {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
+    text-decoration: none;
     font-size: 11px;
-    color: var(--muted);
-    background: #f3f4f6;
-    border: 1px solid var(--rule);
-    padding: 5px 12px;
-    border-radius: 20px;
-    letter-spacing: 0.03em;
+    letter-spacing: 0.04em;
+    border-radius: 4px;
+    transition: opacity 0.15s;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 500;
   }
 
-  .viewer-body {
-    background: #e5e7eb;
-    padding: 20px;
-    min-height: calc(100vh - 160px);
-    display: flex;
-    flex-direction: column;
-  }
-
-  .pdf-frame-wrap {
-    flex: 1;
-    background: var(--white);
-    border-radius: 8px;
-    overflow: hidden;
-    position: relative;
-    border: 1px solid var(--rule);
-    min-height: calc(100vh - 220px);
-  }
-
-  /* transparent blocker prevents right-click save / drag */
-  .pdf-blocker {
-    position: absolute;
-    inset: 0;
-    z-index: 10;
-    background: transparent;
-    -webkit-user-select: none;
-    user-select: none;
-  }
-
-  .pdf-frame-wrap iframe {
-    width: 100%;
-    height: 100%;
-    min-height: calc(100vh - 220px);
-    border: none;
-    display: block;
-  }
-
-  /* xlsx fallback */
-  .xlsx-placeholder {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 14px;
-    min-height: 400px;
-    color: var(--muted);
-    text-align: center;
-    padding: 40px;
-  }
-
-  .xlsx-placeholder .xl-icon {
-    width: 64px; height: 64px; border-radius: 12px;
-    background: #e8f5e9;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 28px;
-  }
-
-  .xlsx-placeholder h3 {
-    font-size: 16px;
-    font-weight: 700;
-    color: var(--ink);
-  }
-
-  .xlsx-placeholder p {
-    font-size: 13px;
-    max-width: 320px;
-    line-height: 1.7;
-  }
-
-  .protected-tag {
-    display: inline-flex; align-items: center; gap: 6px;
-    font-size: 11px; padding: 5px 12px; border-radius: 20px;
-    background: #fef3c7; color: #92400e; border: 1px solid #fde68a;
-  }
+  .dl-btn:hover { opacity: 0.8; }
 </style>
 </head>
+
 <body>
 
-<!-- ══════════════ PAGE 1 — ARTIFACT LIBRARY ══════════════ -->
-<div id="page1" class="page active">
-
-  <header>
-    <div class="header-inner">
-      <div>
-        <div class="eyebrow">Delivery Playbook</div>
-        <h1>Enterprise <span>Transformation</span> Toolkit</h1>
-        <p class="header-sub">Atif Lodhi · PM / TPM · Artefact Library</p>
-      </div>
-      <div class="header-meta">
-        <a class="linkedin-btn" href="https://www.linkedin.com/in/atiflodhi/" target="_blank">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.37V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.59 0 4.26 2.37 4.26 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zm1.78 13.02H3.56V9h3.56v11.45zM22.23 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.46C23.21 24 24 23.23 24 22.28V1.72C24 .77 23.21 0 22.23 0z"/></svg>
-          Atif Lodhi
-        </a>
-      </div>
+<header>
+  <div class="header-inner">
+    <div>
+      <div class="eyebrow">Delivery Playbook</div>
+      <h1>Enterprise <span>Transformation</span> Toolkit</h1>
+      <p class="header-sub">Atif Lodhi · PM / TPM · Artefact Library</p>
     </div>
-  </header>
-
-  <nav>
-    <div class="nav-inner">
-      <a href="#summary">Summary</a>
-      <a href="#artifacts" class="active">Artifacts</a>
+    <div class="header-meta">
+      <a class="linkedin-btn" href="https://www.linkedin.com/in/atiflodhi/" target="_blank">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.37V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.59 0 4.26 2.37 4.26 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zm1.78 13.02H3.56V9h3.56v11.45zM22.23 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.46C23.21 24 24 23.23 24 22.28V1.72C24 .77 23.21 0 22.23 0z"/></svg>
+        Atif Lodhi
+      </a>
     </div>
-  </nav>
-
-  <div class="container">
-    <section id="artifacts">
-      <div class="section-label">Project Artefacts — click to view</div>
-      <div class="artifact-grid" id="artifact-grid"></div>
-    </section>
   </div>
+</header>
+
+<nav>
+  <div class="nav-inner">
+    <a href="#summary">Summary</a>
+    <a href="#artifacts">Artifacts</a>
+  </div>
+</nav>
+
+<div class="container">
+
+  <section id="artifacts">
+    <div class="section-label">Project Artefacts</div>
+    <div class="artifact-grid">
+
+      <div class="artifact-card">
+        <div class="artifact-title">Business Requirements Document</div>
+        <div class="artifact-desc">Stakeholder needs, functional scope and business objectives.</div>
+        <div class="artifact-footer">
+          <a class="dl-btn" href="delivery-playbook/docs/BRD.pdf" download>
+            ↓ Download BRD
+          </a>
+        </div>
+      </div>
+
+      <div class="artifact-card">
+        <div class="artifact-title">Product Requirements Document</div>
+        <div class="artifact-desc">Features, priorities and acceptance criteria.</div>
+        <div class="artifact-footer">
+          <a class="dl-btn" href="delivery-playbook/docs/PRD.pdf" download>
+            ↓ Download PRD
+          </a>
+        </div>
+      </div>
+
+      <div class="artifact-card">
+        <div class="artifact-title">System Requirements Specification</div>
+        <div class="artifact-desc">Functional and non-functional system specifications.</div>
+        <div class="artifact-footer">
+          <a class="dl-btn" href="delivery-playbook/docs/SRS.pdf" download>
+            ↓ Download SRS
+          </a>
+        </div>
+      </div>
+
+      <div class="artifact-card">
+        <div class="artifact-title">Solution Architecture Document</div>
+        <div class="artifact-desc">System design, architecture decisions and integration patterns.</div>
+        <div class="artifact-footer">
+          <a class="dl-btn" href="delivery-playbook/docs/SAD.pdf" download>
+            ↓ Download ARCH
+          </a>
+        </div>
+      </div>
+
+      <div class="artifact-card">
+        <div class="artifact-title">RAID Log</div>
+        <div class="artifact-desc">Risks, assumptions, issues and dependencies tracker.</div>
+        <div class="artifact-footer">
+          <a class="dl-btn" href="delivery-playbook/docs/RAID_Log.xlsx" download>
+            ↓ Download RAID
+          </a>
+        </div>
+      </div>
+
+      <div class="artifact-card">
+        <div class="artifact-title">Change Management Plan</div>
+        <div class="artifact-desc">Adoption strategy, training plan and stakeholder engagement.</div>
+        <div class="artifact-footer">
+          <a class="dl-btn" href="delivery-playbook/docs/Change Management Plan.pdf" download>
+            ↓ Download CMP
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
 
 </div>
-
-<!-- ══════════════ PAGE 2 — DOCUMENT VIEWER ══════════════ -->
-<div id="page2" class="page">
-
-  <div class="viewer-header">
-    <button class="viewer-back-btn" onclick="goBack()">
-      ← Back to Artifacts
-    </button>
-    <div class="viewer-doc-name" id="viewer-title">Document</div>
-    <span class="viewer-badge">View Only</span>
-  </div>
-
-  <div class="viewer-toolbar">
-    <span class="toolbar-meta" id="viewer-meta">–</span>
-    <span class="no-dl-pill">
-      <svg width="10" height="10" viewBox="0 0 16 16" fill="none"><path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-      Downloads disabled
-    </span>
-  </div>
-
-  <div class="viewer-body">
-    <div class="pdf-frame-wrap" id="viewer-area">
-      <!-- content injected by JS -->
-    </div>
-  </div>
-
-</div>
-
-<script>
-  const docs = [
-    {
-      id: 'brd',
-      label: 'Business Requirements Document',
-      short: 'BRD',
-      badgeBg: '#E6F1FB', badgeColor: '#0C447C',
-      file: 'delivery-playbook/docs/BRD.pdf',
-      type: 'pdf',
-      desc: 'Stakeholder needs, functional scope and business objectives'
-    },
-    {
-      id: 'prd',
-      label: 'Product Requirements Document',
-      short: 'PRD',
-      badgeBg: '#EAF3DE', badgeColor: '#27500A',
-      file: 'delivery-playbook/docs/PRD.pdf',
-      type: 'pdf',
-      desc: 'Features, priorities and acceptance criteria'
-    },
-    {
-      id: 'srs',
-      label: 'System Requirements Specification',
-      short: 'SRS',
-      badgeBg: '#EEEDFE', badgeColor: '#3C3489',
-      file: 'delivery-playbook/docs/SRS.pdf',
-      type: 'pdf',
-      desc: 'Functional and non-functional system specifications'
-    },
-    {
-      id: 'arch',
-      label: 'Solution Architecture Document',
-      short: 'SAD',
-      badgeBg: '#FAEEDA', badgeColor: '#633806',
-      file: 'delivery-playbook/docs/SAD.pdf',
-      type: 'pdf',
-      desc: 'System design, architecture decisions and integration patterns'
-    },
-    {
-      id: 'raid',
-      label: 'RAID Log',
-      short: 'RAID',
-      badgeBg: '#FAECE7', badgeColor: '#712B13',
-      file: 'delivery-playbook/docs/RAID_Log.xlsx',
-      type: 'xlsx',
-      desc: 'Risks, assumptions, issues and dependencies tracker'
-    },
-    {
-      id: 'cmp',
-      label: 'Change Management Plan',
-      short: 'CMP',
-      badgeBg: '#FBEAF0', badgeColor: '#72243E',
-      file: 'delivery-playbook/docs/Change Management Plan.pdf',
-      type: 'pdf',
-      desc: 'Adoption strategy, training plan and stakeholder engagement'
-    },
-  ];
-
-  // Build artifact grid
-  const grid = document.getElementById('artifact-grid');
-  docs.forEach(d => {
-    const card = document.createElement('div');
-    card.className = 'artifact-card';
-    card.innerHTML = `
-      <div class="card-badge" style="background:${d.badgeBg}; color:${d.badgeColor}">${d.short}</div>
-      <div class="artifact-title">${d.label}</div>
-      <div class="artifact-desc">${d.desc}</div>
-      <button class="view-btn" onclick="viewDoc('${d.id}')">
-        <svg width="13" height="13" viewBox="0 0 16 16" fill="none">
-          <ellipse cx="8" cy="8" rx="7" ry="5" stroke="currentColor" stroke-width="1.4"/>
-          <circle cx="8" cy="8" r="2" fill="currentColor"/>
-        </svg>
-        View ${d.short}
-      </button>`;
-    grid.appendChild(card);
-  });
-
-  function viewDoc(id) {
-    const d = docs.find(x => x.id === id);
-    if (!d) return;
-
-    document.getElementById('viewer-title').textContent = d.label;
-    document.getElementById('viewer-meta').textContent = d.short + ' · ' + d.desc;
-
-    const area = document.getElementById('viewer-area');
-
-    if (d.type === 'xlsx') {
-      area.innerHTML = `
-        <div class="xlsx-placeholder">
-          <div class="xl-icon">📊</div>
-          <h3>RAID Log (.xlsx)</h3>
-          <p>Spreadsheet files cannot be rendered inline in the browser viewer. This file is protected and download is disabled.</p>
-          <span class="protected-tag">
-            <svg width="11" height="11" viewBox="0 0 16 16" fill="none"><rect x="3" y="7" width="10" height="8" rx="2" stroke="currentColor" stroke-width="1.4"/><path d="M5 7V5a3 3 0 0 1 6 0v2" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
-            View-only · Downloads disabled
-          </span>
-        </div>`;
-    } else {
-      // #toolbar=0 hides Chrome PDF toolbar (download/print buttons)
-      // #navpanes=0 hides side panels
-      const src = d.file + '#toolbar=0&navpanes=0&scrollbar=1';
-      area.innerHTML = `
-        <div class="pdf-blocker" oncontextmenu="return false;"></div>
-        <iframe
-          src="${src}"
-          title="${d.label}"
-          sandbox="allow-scripts allow-same-origin"
-          oncontextmenu="return false;"
-        ></iframe>`;
-    }
-
-    document.getElementById('page1').classList.remove('active');
-    document.getElementById('page2').classList.add('active');
-    window.scrollTo(0, 0);
-  }
-
-  function goBack() {
-    document.getElementById('page2').classList.remove('active');
-    document.getElementById('page1').classList.add('active');
-    // clear iframe to stop any active load
-    const area = document.getElementById('viewer-area');
-    area.innerHTML = '';
-    window.scrollTo(0, 0);
-  }
-</script>
 
 </body>
 </html>
