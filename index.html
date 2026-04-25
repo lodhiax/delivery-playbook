@@ -32,7 +32,6 @@
     overflow-x: hidden;
   }
 
-  /* ---- NOISE TEXTURE OVERLAY ---- */
   body::before {
     content: '';
     position: fixed;
@@ -43,7 +42,6 @@
     opacity: 0.5;
   }
 
-  /* ---- HEADER ---- */
   header {
     background: var(--ink);
     color: var(--white);
@@ -92,9 +90,7 @@
     letter-spacing: -0.02em;
   }
 
-  header h1 span {
-    color: var(--accent);
-  }
+  header h1 span { color: var(--accent); }
 
   .header-sub {
     margin-top: 14px;
@@ -104,9 +100,7 @@
     line-height: 1.7;
   }
 
-  .header-meta {
-    text-align: right;
-  }
+  .header-meta { text-align: right; }
 
   .linkedin-btn {
     display: inline-flex;
@@ -124,17 +118,9 @@
     font-family: 'DM Sans', sans-serif;
   }
 
-  .linkedin-btn:hover {
-    border-color: var(--accent);
-    color: var(--accent);
-  }
+  .linkedin-btn:hover { border-color: var(--accent); color: var(--accent); }
+  .linkedin-btn svg { width: 14px; height: 14px; fill: currentColor; }
 
-  .linkedin-btn svg {
-    width: 14px; height: 14px;
-    fill: currentColor;
-  }
-
-  /* ---- NAV BAR ---- */
   nav {
     background: var(--white);
     border-bottom: 1px solid var(--rule);
@@ -167,19 +153,14 @@
     font-weight: 500;
   }
 
-  .nav-inner a:hover {
-    color: var(--ink);
-    border-bottom-color: var(--accent);
-  }
+  .nav-inner a:hover { color: var(--ink); border-bottom-color: var(--accent); }
 
-  /* ---- MAIN CONTAINER ---- */
   .container {
     max-width: 1100px;
     margin: auto;
     padding: 50px 20px 80px;
   }
 
-  /* ---- SECTION TITLES ---- */
   .section-label {
     display: flex;
     align-items: center;
@@ -208,7 +189,6 @@
     background: var(--rule);
   }
 
-  /* ---- CARDS / SECTIONS ---- */
   .card {
     background: var(--white);
     border: 1px solid var(--rule);
@@ -217,17 +197,9 @@
     margin-bottom: 16px;
   }
 
-  .card p {
-    font-size: 14px;
-    color: #374151;
-    line-height: 1.75;
-  }
+  .card p { font-size: 14px; color: #374151; line-height: 1.75; }
+  .card p + p { margin-top: 12px; }
 
-  .card p + p {
-    margin-top: 12px;
-  }
-
-  /* ---- COMPETENCY GRID ---- */
   .competency-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
@@ -247,20 +219,9 @@
     transition: border-color 0.2s, box-shadow 0.2s;
   }
 
-  .comp-item:hover {
-    border-color: var(--accent);
-    box-shadow: 0 2px 10px rgba(200,169,110,0.15);
-  }
+  .comp-item:hover { border-color: var(--accent); box-shadow: 0 2px 10px rgba(200,169,110,0.15); }
+  .comp-dot { width: 6px; height: 6px; background: var(--accent); border-radius: 50%; flex-shrink: 0; }
 
-  .comp-dot {
-    width: 6px;
-    height: 6px;
-    background: var(--accent);
-    border-radius: 50%;
-    flex-shrink: 0;
-  }
-
-  /* ---- ARTIFACTS ---- */
   .artifact-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -289,15 +250,8 @@
     transition: opacity 0.2s;
   }
 
-  .artifact-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 30px rgba(0,0,0,0.09);
-    border-color: #c4bfb6;
-  }
-
-  .artifact-card:hover::before {
-    opacity: 1;
-  }
+  .artifact-card:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(0,0,0,0.09); border-color: #c4bfb6; }
+  .artifact-card:hover::before { opacity: 1; }
 
   .artifact-top {
     display: flex;
@@ -307,8 +261,7 @@
   }
 
   .artifact-icon {
-    width: 36px;
-    height: 36px;
+    width: 36px; height: 36px;
     background: var(--accent-light);
     border-radius: 8px;
     display: flex;
@@ -337,12 +290,7 @@
     letter-spacing: -0.01em;
   }
 
-  .artifact-desc {
-    font-size: 13px;
-    color: #4b5563;
-    line-height: 1.65;
-    flex: 1;
-  }
+  .artifact-desc { font-size: 13px; color: #4b5563; line-height: 1.65; flex: 1; }
 
   .artifact-reflection {
     margin-top: 12px;
@@ -354,11 +302,7 @@
     line-height: 1.5;
   }
 
-  .artifact-footer {
-    margin-top: 16px;
-    display: flex;
-    justify-content: flex-end;
-  }
+  .artifact-footer { margin-top: 16px; display: flex; justify-content: flex-end; }
 
   .dl-btn {
     display: inline-flex;
@@ -377,16 +321,9 @@
     font-family: 'DM Sans', sans-serif;
   }
 
-  .dl-btn:hover {
-    background: var(--blue);
-  }
+  .dl-btn:hover { background: var(--blue); }
+  .dl-btn svg { width: 12px; height: 12px; fill: currentColor; }
 
-  .dl-btn svg {
-    width: 12px; height: 12px;
-    fill: currentColor;
-  }
-
-  /* ---- FOOTER ---- */
   footer {
     background: var(--ink);
     color: #6b7280;
@@ -396,32 +333,20 @@
     letter-spacing: 0.04em;
   }
 
-  footer span {
-    color: var(--accent);
-  }
+  footer span { color: var(--accent); }
 
-  /* ---- ANIMATIONS ---- */
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
   }
 
-  .animate {
-    opacity: 0;
-    animation: fadeUp 0.5s ease forwards;
-  }
-
+  .animate { opacity: 0; animation: fadeUp 0.5s ease forwards; }
   .delay-1 { animation-delay: 0.1s; }
   .delay-2 { animation-delay: 0.2s; }
   .delay-3 { animation-delay: 0.3s; }
   .delay-4 { animation-delay: 0.4s; }
 
-  /* ---- IMPACT STATS ---- */
-  .impact-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 14px;
-  }
+  .impact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; }
 
   .stat-card {
     background: var(--ink);
@@ -444,36 +369,11 @@
     border-radius: 50%;
   }
 
-  .stat-value {
-    font-family: 'Playfair Display', serif;
-    font-size: 42px;
-    font-weight: 900;
-    color: var(--accent);
-    line-height: 1;
-    letter-spacing: -0.02em;
-  }
+  .stat-value { font-family: 'Playfair Display', serif; font-size: 42px; font-weight: 900; color: var(--accent); line-height: 1; letter-spacing: -0.02em; }
+  .stat-label { margin-top: 8px; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: #9ca3af; font-weight: 500; }
+  .stat-note { margin-top: 6px; font-size: 11px; color: #6b7280; }
 
-  .stat-label {
-    margin-top: 8px;
-    font-size: 12px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: #9ca3af;
-    font-weight: 500;
-  }
-
-  .stat-note {
-    margin-top: 6px;
-    font-size: 11px;
-    color: #6b7280;
-  }
-
-  /* ---- INDUSTRIES ---- */
-  .industry-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 12px;
-  }
+  .industry-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 12px; }
 
   .industry-card {
     background: var(--white);
@@ -485,75 +385,23 @@
     cursor: default;
   }
 
-  .industry-card:hover {
-    border-color: var(--accent);
-    box-shadow: 0 4px 16px rgba(200,169,110,0.15);
-    transform: translateY(-2px);
-  }
+  .industry-card:hover { border-color: var(--accent); box-shadow: 0 4px 16px rgba(200,169,110,0.15); transform: translateY(-2px); }
+  .industry-icon { font-size: 28px; margin-bottom: 10px; display: block; }
+  .industry-name { font-size: 12px; font-weight: 600; letter-spacing: 0.03em; color: var(--ink); line-height: 1.4; }
 
-  .industry-icon {
-    font-size: 28px;
-    margin-bottom: 10px;
-    display: block;
-  }
-
-  .industry-name {
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 0.03em;
-    color: var(--ink);
-    line-height: 1.4;
-  }
-
-  /* ---- TIMELINE ---- */
-  .timeline {
-    position: relative;
-    padding-left: 0;
-  }
+  .timeline { position: relative; padding-left: 0; }
 
   .timeline-line {
     position: absolute;
-    left: 130px;
-    top: 0; bottom: 0;
+    left: 130px; top: 0; bottom: 0;
     width: 2px;
     background: linear-gradient(to bottom, var(--accent), var(--rule));
   }
 
-  .timeline-item {
-    display: grid;
-    grid-template-columns: 120px 32px 1fr;
-    gap: 0 16px;
-    margin-bottom: 10px;
-    align-items: start;
-  }
-
-  .timeline-date {
-    text-align: right;
-    padding-top: 18px;
-    font-size: 11px;
-    color: var(--muted);
-    letter-spacing: 0.04em;
-    font-weight: 500;
-    line-height: 1.4;
-  }
-
-  .timeline-dot-col {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 20px;
-  }
-
-  .timeline-dot {
-    width: 14px;
-    height: 14px;
-    border-radius: 50%;
-    background: var(--accent);
-    border: 3px solid var(--paper);
-    box-shadow: 0 0 0 2px var(--accent);
-    flex-shrink: 0;
-    z-index: 1;
-  }
+  .timeline-item { display: grid; grid-template-columns: 120px 32px 1fr; gap: 0 16px; margin-bottom: 10px; align-items: start; }
+  .timeline-date { text-align: right; padding-top: 18px; font-size: 11px; color: var(--muted); letter-spacing: 0.04em; font-weight: 500; line-height: 1.4; }
+  .timeline-dot-col { display: flex; flex-direction: column; align-items: center; padding-top: 20px; }
+  .timeline-dot { width: 14px; height: 14px; border-radius: 50%; background: var(--accent); border: 3px solid var(--paper); box-shadow: 0 0 0 2px var(--accent); flex-shrink: 0; z-index: 1; }
 
   .timeline-card {
     background: var(--white);
@@ -564,59 +412,13 @@
     transition: border-color 0.2s, box-shadow 0.2s;
   }
 
-  .timeline-card:hover {
-    border-color: var(--accent);
-    box-shadow: 0 3px 14px rgba(200,169,110,0.12);
-  }
-
-  .timeline-role {
-    font-family: 'Playfair Display', serif;
-    font-size: 15px;
-    font-weight: 700;
-    letter-spacing: -0.01em;
-    margin-bottom: 2px;
-  }
-
-  .timeline-company {
-    font-size: 13px;
-    color: var(--accent);
-    font-weight: 600;
-    margin-bottom: 8px;
-  }
-
-  .timeline-meta {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-bottom: 8px;
-  }
-
-  .tl-badge {
-    font-size: 10px;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    background: var(--accent-light);
-    color: #7c5c1e;
-    padding: 3px 8px;
-    border-radius: 3px;
-    font-weight: 600;
-  }
-
-  .timeline-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-    margin-top: 8px;
-  }
-
-  .tl-tech {
-    font-size: 10px;
-    background: #f1f5f9;
-    color: #475569;
-    padding: 2px 7px;
-    border-radius: 3px;
-    font-weight: 500;
-  }
+  .timeline-card:hover { border-color: var(--accent); box-shadow: 0 3px 14px rgba(200,169,110,0.12); }
+  .timeline-role { font-family: 'Playfair Display', serif; font-size: 15px; font-weight: 700; letter-spacing: -0.01em; margin-bottom: 2px; }
+  .timeline-company { font-size: 13px; color: var(--accent); font-weight: 600; margin-bottom: 8px; }
+  .timeline-meta { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 8px; }
+  .tl-badge { font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; background: var(--accent-light); color: #7c5c1e; padding: 3px 8px; border-radius: 3px; font-weight: 600; }
+  .timeline-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+  .tl-tech { font-size: 10px; background: #f1f5f9; color: #475569; padding: 2px 7px; border-radius: 3px; font-weight: 500; }
 
   @media (max-width: 640px) {
     .timeline-line { left: 0; display: none; }
@@ -625,10 +427,6 @@
     .timeline-dot-col { display: none; }
     .impact-grid { grid-template-columns: 1fr 1fr; }
     .industry-grid { grid-template-columns: repeat(3, 1fr); }
-  }
-
-
-  @media (max-width: 640px) {
     .header-inner { grid-template-columns: 1fr; }
     .header-meta { text-align: left; }
     header { padding: 50px 20px 40px; }
@@ -727,34 +525,13 @@
       <h2>Industries Served</h2>
     </div>
     <div class="industry-grid">
-      <div class="industry-card">
-        <span class="industry-icon">🏥</span>
-        <div class="industry-name">Healthcare &amp; Medical Devices</div>
-      </div>
-      <div class="industry-card">
-        <span class="industry-icon">🏦</span>
-        <div class="industry-name">Banking &amp; Financial Services</div>
-      </div>
-      <div class="industry-card">
-        <span class="industry-icon">📦</span>
-        <div class="industry-name">Logistics &amp; Supply Chain</div>
-      </div>
-      <div class="industry-card">
-        <span class="industry-icon">🛒</span>
-        <div class="industry-name">E-Commerce &amp; Retail</div>
-      </div>
-      <div class="industry-card">
-        <span class="industry-icon">⛽</span>
-        <div class="industry-name">Oil &amp; Gas</div>
-      </div>
-      <div class="industry-card">
-        <span class="industry-icon">🎓</span>
-        <div class="industry-name">Higher Education</div>
-      </div>
-      <div class="industry-card">
-        <span class="industry-icon">📱</span>
-        <div class="industry-name">Consumer Electronics</div>
-      </div>
+      <div class="industry-card"><span class="industry-icon">🏥</span><div class="industry-name">Healthcare &amp; Medical Devices</div></div>
+      <div class="industry-card"><span class="industry-icon">🏦</span><div class="industry-name">Banking &amp; Financial Services</div></div>
+      <div class="industry-card"><span class="industry-icon">📦</span><div class="industry-name">Logistics &amp; Supply Chain</div></div>
+      <div class="industry-card"><span class="industry-icon">🛒</span><div class="industry-name">E-Commerce &amp; Retail</div></div>
+      <div class="industry-card"><span class="industry-icon">⛽</span><div class="industry-name">Oil &amp; Gas</div></div>
+      <div class="industry-card"><span class="industry-icon">🎓</span><div class="industry-name">Higher Education</div></div>
+      <div class="industry-card"><span class="industry-icon">📱</span><div class="industry-name">Consumer Electronics</div></div>
     </div>
   </section>
 
@@ -767,7 +544,6 @@
     <div class="timeline">
       <div class="timeline-line"></div>
 
-      <!-- Creatics -->
       <div class="timeline-item">
         <div class="timeline-date">Jun 2016<br>Current</div>
         <div class="timeline-dot-col"><div class="timeline-dot"></div></div>
@@ -775,34 +551,14 @@
           <div class="timeline-role">Principal Program Manager</div>
           <div class="timeline-company">Creatics Private Limited</div>
           <div class="timeline-meta">
-            <span class="tl-badge">Budget $55M</span>
-            <span class="tl-badge">95–125 FTEs</span>
-            <span class="tl-badge">10 Vendors</span>
-            <span class="tl-badge">Consultancy</span>
+            <span class="tl-badge">Budget $55M</span><span class="tl-badge">95–125 FTEs</span><span class="tl-badge">10 Vendors</span><span class="tl-badge">Consultancy</span>
           </div>
           <div class="timeline-tags">
-            <span class="tl-tech">RedHat OpenShift</span>
-            <span class="tl-tech">Temenos Core Banking</span>
-            <span class="tl-tech">SAP S/4 HANA</span>
-            <span class="tl-tech">Apache Kafka</span>
-            <span class="tl-tech">Salesforce CRM</span>
-            <span class="tl-tech">Power BI</span>
-            <span class="tl-tech">OCI DataLake</span>
-            <span class="tl-tech">Warehouse Mgmt</span>
-            <span class="tl-tech">E-Commerce</span>
-            <span class="tl-tech">Fleet Mgmt</span>
-            <span class="tl-tech">HCM</span>
-            <span class="tl-tech">API Gateway</span>
-            <span class="tl-tech">F5 Load Balancer</span>
-            <span class="tl-tech">Core Banking</span>
-            <span class="tl-tech">Loan Origination</span>
-            <span class="tl-tech">SQL</span>
-            <span class="tl-tech">BRD / FRD</span>
+            <span class="tl-tech">RedHat OpenShift</span><span class="tl-tech">Temenos Core Banking</span><span class="tl-tech">SAP S/4 HANA</span><span class="tl-tech">Apache Kafka</span><span class="tl-tech">Salesforce CRM</span><span class="tl-tech">Power BI</span><span class="tl-tech">OCI DataLake</span><span class="tl-tech">Warehouse Mgmt</span><span class="tl-tech">E-Commerce</span><span class="tl-tech">Fleet Mgmt</span><span class="tl-tech">HCM</span><span class="tl-tech">API Gateway</span><span class="tl-tech">F5 Load Balancer</span><span class="tl-tech">Core Banking</span><span class="tl-tech">Loan Origination</span><span class="tl-tech">SQL</span><span class="tl-tech">BRD / FRD</span>
           </div>
         </div>
       </div>
 
-      <!-- Abbott -->
       <div class="timeline-item">
         <div class="timeline-date">Feb 2015<br>May 2016</div>
         <div class="timeline-dot-col"><div class="timeline-dot"></div></div>
@@ -810,21 +566,14 @@
           <div class="timeline-role">Project Manager</div>
           <div class="timeline-company">Abbott Medical Optics</div>
           <div class="timeline-meta">
-            <span class="tl-badge">12–15 FTEs</span>
-            <span class="tl-badge">Medical Devices</span>
+            <span class="tl-badge">12–15 FTEs</span><span class="tl-badge">Medical Devices</span>
           </div>
           <div class="timeline-tags">
-            <span class="tl-tech">VISX Star S4 IR</span>
-            <span class="tl-tech">iFS Femtosecond Laser</span>
-            <span class="tl-tech">Wavescan Wavefront</span>
-            <span class="tl-tech">Good Manufacturing Practice (CGMP)</span>
-            <span class="tl-tech">Lean Six Sigma (LSS) </span>
-            <span class="tl-tech">FMEA </span>
+            <span class="tl-tech">VISX Star S4 IR</span><span class="tl-tech">iFS Femtosecond Laser</span><span class="tl-tech">Wavescan Wavefront</span><span class="tl-tech">Good Manufacturing Practice (CGMP)</span><span class="tl-tech">Lean Six Sigma (LSS)</span><span class="tl-tech">FMEA</span>
           </div>
         </div>
       </div>
 
-      <!-- BD Biosciences -->
       <div class="timeline-item">
         <div class="timeline-date">Jul 2011<br>Jan 2015</div>
         <div class="timeline-dot-col"><div class="timeline-dot"></div></div>
@@ -832,24 +581,14 @@
           <div class="timeline-role">Sr. Systems Engineer</div>
           <div class="timeline-company">BD Biosciences</div>
           <div class="timeline-meta">
-            <span class="tl-badge">15–20 FTEs</span>
-            <span class="tl-badge">IVD Systems</span>
+            <span class="tl-badge">15–20 FTEs</span><span class="tl-badge">IVD Systems</span>
           </div>
           <div class="timeline-tags">
-            <span class="tl-tech">BD FACSuite™</span>
-            <span class="tl-tech">Flow Cytometry</span>
-            <span class="tl-tech">FDA Compliance</span>
-            <span class="tl-tech">ISO 13485</span>
-            <span class="tl-tech">SDLC</span>
-            <span class="tl-tech">Design Control</span>
-            <span class="tl-tech">Training and Complaince</span>
-            <span class="tl-tech">Risk Management (ISO 14971)</span>
-            <span class="tl-tech">Laboratory Management Systems (LMS/LIMS)</span>
+            <span class="tl-tech">BD FACSuite™</span><span class="tl-tech">Flow Cytometry</span><span class="tl-tech">FDA Compliance</span><span class="tl-tech">ISO 13485</span><span class="tl-tech">SDLC</span><span class="tl-tech">Design Control</span><span class="tl-tech">Training and Compliance</span><span class="tl-tech">Risk Management (ISO 14971)</span><span class="tl-tech">Laboratory Management Systems (LMS/LIMS)</span>
           </div>
         </div>
       </div>
 
-      <!-- Medtronic -->
       <div class="timeline-item">
         <div class="timeline-date">Sep 2006<br>Jun 2011</div>
         <div class="timeline-dot-col"><div class="timeline-dot"></div></div>
@@ -857,23 +596,13 @@
           <div class="timeline-role">Systems Engineer</div>
           <div class="timeline-company">Medtronic Minimed</div>
           <div class="timeline-meta">
-            <span class="tl-badge">Medical Devices</span>
-            <span class="tl-badge">IEC 62304</span>
+            <span class="tl-badge">Medical Devices</span><span class="tl-badge">IEC 62304</span>
           </div>
           <div class="timeline-tags">
-            <span class="tl-tech">MySentry System</span>
-            <span class="tl-tech">CareLink Pro</span>
-            <span class="tl-tech">QTP Automation</span>
-            <span class="tl-tech">Risk Management</span>
-            <span class="tl-tech">PMA</span>
-            <span class="tl-tech">Reliability Engineering</span>
-            <span class="tl-tech">UI/UX</span>
-            <span class="tl-tech">DVT/DFT</span>
+            <span class="tl-tech">MySentry System</span><span class="tl-tech">CareLink Pro</span><span class="tl-tech">QTP Automation</span><span class="tl-tech">Risk Management</span><span class="tl-tech">PMA</span><span class="tl-tech">Reliability Engineering</span><span class="tl-tech">UI/UX</span><span class="tl-tech">DVT/DFT</span>
           </div>
         </div>
       </div>
-
-
 
     </div>
   </section>
@@ -916,7 +645,7 @@
         <div class="artifact-desc">Defines business objectives, stakeholder needs, and functional scope for enterprise initiatives. Translates organizational goals into formal, actionable requirements.</div>
         <div class="artifact-reflection">Shows structured thinking and the ability to bridge business problems with formal requirements.</div>
         <div class="artifact-footer">
-          <<a class="dl-btn" href="#">
+          <a class="dl-btn" href="https://github.com/lodhiax/delivery-playbook/raw/main/docs/BRD.pdf" target="_blank">
             <svg viewBox="0 0 24 24"><path d="M12 16l-6-6h4V4h4v6h4l-6 6zm-7 4h14v-2H5v2z"/></svg>
             Download BRD
           </a>
@@ -933,7 +662,7 @@
         <div class="artifact-desc">Captures product vision, user journeys, features, and acceptance criteria. Defines the line between MVP scope and longer-term roadmap priorities.</div>
         <div class="artifact-reflection">Demonstrates product mindset and the ability to define MVP vs long-term roadmap.</div>
         <div class="artifact-footer">
-          <a class="dl-btn" href="#">
+          <a class="dl-btn" href="https://github.com/lodhiax/delivery-playbook/raw/main/docs/PRD.pdf" target="_blank">
             <svg viewBox="0 0 24 24"><path d="M12 16l-6-6h4V4h4v6h4l-6 6zm-7 4h14v-2H5v2z"/></svg>
             Download PRD
           </a>
@@ -950,7 +679,7 @@
         <div class="artifact-desc">Technical specification defining system behavior, constraints, and functional requirements. Ensures alignment between business requirements and technical implementation.</div>
         <div class="artifact-reflection">Shows cross-functional alignment between business requirements and technical delivery.</div>
         <div class="artifact-footer">
-          <a class="dl-btn" href="#">
+          <a class="dl-btn" href="https://github.com/lodhiax/delivery-playbook/raw/main/docs/SRS.pdf" target="_blank">
             <svg viewBox="0 0 24 24"><path d="M12 16l-6-6h4V4h4v6h4l-6 6zm-7 4h14v-2H5v2z"/></svg>
             Download SRS
           </a>
@@ -967,65 +696,31 @@
         <div class="artifact-desc">Tracks risks, assumptions, issues, and dependencies across delivery streams. Provides a single source of truth for proactive governance and execution risk management.</div>
         <div class="artifact-reflection">Demonstrates proactive governance and execution risk management across programs.</div>
         <div class="artifact-footer">
-          <a class="dl-btn" href="#">
+          <a class="dl-btn" href="https://github.com/lodhiax/delivery-playbook/raw/main/docs/RAID_Log.xlsx" target="_blank">
             <svg viewBox="0 0 24 24"><path d="M12 16l-6-6h4V4h4v6h4l-6 6zm-7 4h14v-2H5v2z"/></svg>
             Download RAID
           </a>
         </div>
       </div>
 
-      <!-- Project Plan -->
-      <div class="artifact-card">
-        <div class="artifact-top">
-          <div class="artifact-icon">📅</div>
-          <span class="artifact-tag">Execution</span>
-        </div>
-        <div class="artifact-title">Project Plan</div>
-        <div class="artifact-desc">Defines milestones, timelines, resources, and the full delivery roadmap. Structures execution across cross-functional teams from kickoff through delivery.</div>
-        <div class="artifact-reflection">Shows ability to structure execution and manage cross-functional delivery.</div>
-        <div class="artifact-footer">
-          <a class="dl-btn" href="#">
-            <svg viewBox="0 0 24 24"><path d="M12 16l-6-6h4V4h4v6h4l-6 6zm-7 4h14v-2H5v2z"/></svg>
-            Download Plan
-          </a>
-        </div>
-      </div>
-
-      <!-- KPI Dashboard -->
-      <div class="artifact-card">
-        <div class="artifact-top">
-          <div class="artifact-icon">📊</div>
-          <span class="artifact-tag">Metrics</span>
-        </div>
-        <div class="artifact-title">KPI Framework</div>
-        <div class="artifact-desc">Defines performance metrics across delivery, quality, financial, and adoption dimensions. Enables data-driven decision-making throughout program lifecycle.</div>
-        <div class="artifact-reflection">Highlights data-driven decision-making and performance tracking capability.</div>
-        <div class="artifact-footer">
-          <a class="dl-btn" href="#">
-            <svg viewBox="0 0 24 24"><path d="M12 16l-6-6h4V4h4v6h4l-6 6zm-7 4h14v-2H5v2z"/></svg>
-            Download KPIs
-          </a>
-        </div>
-      </div>
-
-      <!-- Architecture -->
+      <!-- Architecture / SAD -->
       <div class="artifact-card">
         <div class="artifact-top">
           <div class="artifact-icon">🏗️</div>
           <span class="artifact-tag">Design</span>
         </div>
-        <div class="artifact-title">Enterprise Architecture</div>
+        <div class="artifact-title">Solution Architecture Document</div>
         <div class="artifact-desc">Enterprise architecture model showing business, application, and system layers. Demonstrates cross-domain architectural alignment using ArchiMate framework.</div>
         <div class="artifact-reflection">Demonstrates systems thinking and cross-domain architectural alignment.</div>
         <div class="artifact-footer">
-          <a class="dl-btn" href="#">
+          <a class="dl-btn" href="https://github.com/lodhiax/delivery-playbook/raw/main/docs/SAD.pdf" target="_blank">
             <svg viewBox="0 0 24 24"><path d="M12 16l-6-6h4V4h4v6h4l-6 6zm-7 4h14v-2H5v2z"/></svg>
-            Download Arch
+            Download ARCH
           </a>
         </div>
       </div>
 
-      <!-- Change Plan -->
+      <!-- Change Management Plan -->
       <div class="artifact-card">
         <div class="artifact-top">
           <div class="artifact-icon">🔄</div>
@@ -1035,26 +730,9 @@
         <div class="artifact-desc">Covers communication, training, and adoption strategy to drive organizational readiness. Ensures transformation outcomes are sustained beyond delivery.</div>
         <div class="artifact-reflection">Shows capability in driving organizational adoption beyond delivery completion.</div>
         <div class="artifact-footer">
-          <a class="dl-btn" href="#">
+          <a class="dl-btn" href="https://github.com/lodhiax/delivery-playbook/raw/main/docs/Change%20Management%20Plan.pdf" target="_blank">
             <svg viewBox="0 0 24 24"><path d="M12 16l-6-6h4V4h4v6h4l-6 6zm-7 4h14v-2H5v2z"/></svg>
-            Download Plan
-          </a>
-        </div>
-      </div>
-
-      <!-- Exec Deck -->
-      <div class="artifact-card">
-        <div class="artifact-top">
-          <div class="artifact-icon">🎯</div>
-          <span class="artifact-tag">Executive</span>
-        </div>
-        <div class="artifact-title">Executive Presentation</div>
-        <div class="artifact-desc">Summarizes program status, risks, decisions, and outcomes for C-suite and senior stakeholders. Communicates strategic impact with clarity and precision.</div>
-        <div class="artifact-reflection">Demonstrates executive communication and stakeholder influence skills.</div>
-        <div class="artifact-footer">
-          <a class="dl-btn" href="#">
-            <svg viewBox="0 0 24 24"><path d="M12 16l-6-6h4V4h4v6h4l-6 6zm-7 4h14v-2H5v2z"/></svg>
-            Download Deck
+            Download CMP
           </a>
         </div>
       </div>
@@ -1070,4 +748,4 @@
 </footer>
 
 </body>
-</html>"
+</html>
