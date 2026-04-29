@@ -475,6 +475,45 @@
   .timeline-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
   .tl-tech { font-size: 10px; background: #f1f5f9; color: #475569; padding: 2px 7px; border-radius: 3px; font-weight: 500; }
 
+  /* ── Coming Soon Cards ── */
+  .artifact-card.coming-soon {
+    opacity: 0.82;
+    background: var(--paper);
+  }
+
+  .artifact-card.coming-soon::before {
+    background: linear-gradient(90deg, #94a3b8, transparent);
+  }
+
+  .coming-soon-badge {
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    background: #f1f5f9;
+    color: #64748b;
+    padding: 3px 8px;
+    border-radius: 3px;
+    font-weight: 500;
+    border: 1px dashed #cbd5e1;
+  }
+
+  .coming-soon-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 14px;
+    background: transparent;
+    color: #94a3b8;
+    border: 1px dashed #cbd5e1;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    border-radius: 4px;
+    font-weight: 500;
+    font-family: 'DM Sans', sans-serif;
+    cursor: default;
+  }
+
   /* ── Case Studies ── */
   .case-grid {
     display: grid;
@@ -1045,7 +1084,7 @@
       <div class="artifact-card">
         <div class="artifact-top">
           <div class="artifact-icon">⚙️</div>
-          <span class="artifact-tag">Systems</span>
+          <span class="artifact-tag">Technical</span>
         </div>
         <div class="artifact-title">System Requirements Specification</div>
         <div class="artifact-desc">Technical specification defining system behavior, constraints, and functional requirements. Ensures alignment between business requirements and technical implementation.</div>
@@ -1109,7 +1148,7 @@
       <div class="artifact-card">
         <div class="artifact-top">
           <div class="artifact-icon">🏗️</div>
-          <span class="artifact-tag">Design</span>
+          <span class="artifact-tag">Architecture</span>
         </div>
         <div class="artifact-title">Solution Architecture Document</div>
         <div class="artifact-desc">Enterprise architecture model showing business, application, and system layers. Demonstrates cross-domain architectural alignment using ArchiMate framework.</div>
@@ -1150,6 +1189,57 @@
           <a class="dl-btn" href="https://github.com/lodhiax/delivery-playbook/raw/main/docs/Change%20Management%20Plan.pdf" target="_blank">
             <svg viewBox="0 0 24 24"><path d="M12 16l-6-6h4V4h4v6h4l-6 6zm-7 4h14v-2H5v2z"/></svg>
             Download CMP
+          </a>
+        </div>
+      </div>
+
+      <!-- RACI Matrix -->
+      <div class="artifact-card">
+        <div class="artifact-top">
+          <div class="artifact-icon">👥</div>
+          <span class="artifact-tag">Governance</span>
+        </div>
+        <div class="artifact-title">RACI Matrix</div>
+        <div class="artifact-desc">Defines accountability across every workstream, vendor, and stakeholder role on a program. Makes ownership unambiguous at the task, decision, and escalation level — essential when managing 10+ vendors concurrently.</div>
+        <div class="artifact-reflection">Shows ability to govern complex multi-vendor, multi-team accountability structures without ambiguity.</div>
+        <div class="artifact-footer">
+          <a class="dl-btn" href="https://github.com/lodhiax/delivery-playbook/raw/main/docs/RACI_Matrix.xlsx" target="_blank">
+            <svg viewBox="0 0 24 24"><path d="M12 16l-6-6h4V4h4v6h4l-6 6zm-7 4h14v-2H5v2z"/></svg>
+            Download RACI
+          </a>
+        </div>
+      </div>
+
+      <!-- Release Management Plan -->
+      <div class="artifact-card">
+        <div class="artifact-top">
+          <div class="artifact-icon">🚀</div>
+          <span class="artifact-tag">Delivery</span>
+        </div>
+        <div class="artifact-title">Release Management Plan</div>
+        <div class="artifact-desc">Governs the end-to-end release lifecycle — environment readiness, release gates, go/no-go criteria, rollback procedures, and post-release validation. Bridges the gap between engineering delivery and production deployment.</div>
+        <div class="artifact-reflection">Demonstrates ownership of the engineering-to-delivery boundary — a core TPM differentiator.</div>
+        <div class="artifact-footer">
+          <a class="dl-btn" href="https://github.com/lodhiax/delivery-playbook/raw/main/docs/Release_Management_Plan.pdf" target="_blank">
+            <svg viewBox="0 0 24 24"><path d="M12 16l-6-6h4V4h4v6h4l-6 6zm-7 4h14v-2H5v2z"/></svg>
+            Download RMP
+          </a>
+        </div>
+      </div>
+
+      <!-- Integration Decision Log -->
+      <div class="artifact-card">
+        <div class="artifact-top">
+          <div class="artifact-icon">🔌</div>
+          <span class="artifact-tag">Architecture</span>
+        </div>
+        <div class="artifact-title">Integration Decision Log</div>
+        <div class="artifact-desc">Captures architectural and integration decisions made across a program — the options considered, the trade-offs weighed, and the rationale behind each call. Turns invisible technical decision-making into a governed, auditable record.</div>
+        <div class="artifact-reflection">One of the rarest artifacts in any PM portfolio — signals genuine technical depth and cross-domain thinking.</div>
+        <div class="artifact-footer">
+          <a class="dl-btn" href="https://github.com/lodhiax/delivery-playbook/raw/main/docs/Integration_Decision_Log.pdf" target="_blank">
+            <svg viewBox="0 0 24 24"><path d="M12 16l-6-6h4V4h4v6h4l-6 6zm-7 4h14v-2H5v2z"/></svg>
+            Download IDL
           </a>
         </div>
       </div>
