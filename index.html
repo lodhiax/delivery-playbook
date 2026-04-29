@@ -21,7 +21,6 @@
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
   html { scroll-behavior: smooth; }
 
   body {
@@ -324,6 +323,94 @@
   .dl-btn:hover { background: var(--blue); }
   .dl-btn svg { width: 12px; height: 12px; fill: currentColor; }
 
+  /* ── PMO Framework section ── */
+  .pmo-intro {
+    background: var(--white);
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    padding: 28px;
+    margin-bottom: 28px;
+  }
+  .pmo-intro p { font-size: 14px; color: #374151; line-height: 1.75; }
+  .pmo-intro p + p { margin-top: 10px; }
+
+  .pipeline {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0;
+    margin-bottom: 32px;
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .phase {
+    padding: 16px 12px 14px;
+    background: var(--white);
+    border-right: 1px solid var(--rule);
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .phase:last-child { border-right: none; }
+  .phase:hover { background: var(--accent-light); }
+  .phase.active { background: var(--ink); }
+  .phase-num { font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); font-weight: 700; margin-bottom: 6px; }
+  .phase-title { font-size: 13px; font-weight: 600; color: var(--ink); line-height: 1.3; }
+  .phase.active .phase-title { color: #fff; }
+  .phase-sub { font-size: 11px; color: var(--muted); margin-top: 4px; line-height: 1.4; }
+  .phase.active .phase-sub { color: #9ca3af; }
+
+  .detail-panel {
+    background: var(--white);
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    padding: 24px 28px;
+    margin-bottom: 28px;
+    min-height: 180px;
+  }
+
+  .detail-header {
+    display: flex; align-items: flex-start; justify-content: space-between;
+    margin-bottom: 16px; gap: 16px;
+  }
+  .detail-icon {
+    width: 40px; height: 40px; background: var(--accent-light); border-radius: 8px;
+    display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0;
+  }
+  .detail-title-group { flex: 1; }
+  .detail-phase-label { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); font-weight: 700; margin-bottom: 4px; }
+  .detail-title { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; letter-spacing: -0.01em; color: var(--ink); }
+  .detail-tag { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; background: var(--ink); color: var(--paper); padding: 3px 10px; border-radius: 3px; font-weight: 500; align-self: flex-start; white-space: nowrap; }
+  .detail-body { font-size: 13.5px; color: #374151; line-height: 1.75; margin-bottom: 16px; }
+
+  .pill-list { display: flex; flex-wrap: wrap; gap: 8px; }
+  .pill {
+    font-size: 11px; background: var(--accent-light); color: #7c5c1e;
+    padding: 4px 10px; border-radius: 4px; font-weight: 600;
+  }
+  .pill.gov { background: #f1f5f9; color: #475569; }
+
+  .pill-section-label {
+    margin-bottom: 8px; font-size: 11px; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--muted); font-weight: 600;
+  }
+
+  .domains-label {
+    font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--muted); font-weight: 600; margin-bottom: 14px;
+  }
+  .domains-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px;
+  }
+  .domain-card {
+    background: var(--white); border: 1px solid var(--rule); border-radius: 6px;
+    padding: 14px 16px; transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .domain-card:hover { border-color: var(--accent); box-shadow: 0 2px 10px rgba(200,169,110,0.15); }
+  .domain-card-title { font-size: 12px; font-weight: 600; color: var(--ink); margin-bottom: 3px; }
+  .domain-card-sub { font-size: 11px; color: var(--muted); line-height: 1.4; }
+  .nav-hint { font-size: 11px; color: var(--muted); text-align: center; margin-top: 12px; letter-spacing: 0.04em; }
+
   footer {
     background: var(--ink);
     color: #6b7280;
@@ -332,14 +419,12 @@
     font-size: 12px;
     letter-spacing: 0.04em;
   }
-
   footer span { color: var(--accent); }
 
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
   }
-
   .animate { opacity: 0; animation: fadeUp 0.5s ease forwards; }
   .delay-1 { animation-delay: 0.1s; }
   .delay-2 { animation-delay: 0.2s; }
@@ -349,69 +434,39 @@
   .impact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; }
 
   .stat-card {
-    background: var(--ink);
-    color: var(--white);
-    border-radius: 8px;
-    padding: 28px 24px;
-    position: relative;
-    overflow: hidden;
-    transition: transform 0.2s;
+    background: var(--ink); color: var(--white); border-radius: 8px;
+    padding: 28px 24px; position: relative; overflow: hidden; transition: transform 0.2s;
   }
-
   .stat-card:hover { transform: translateY(-3px); }
-
   .stat-card::before {
-    content: '';
-    position: absolute;
-    bottom: 0; right: 0;
+    content: ''; position: absolute; bottom: 0; right: 0;
     width: 80px; height: 80px;
     background: radial-gradient(circle, rgba(200,169,110,0.2), transparent 70%);
     border-radius: 50%;
   }
-
   .stat-value { font-family: 'Playfair Display', serif; font-size: 42px; font-weight: 900; color: var(--accent); line-height: 1; letter-spacing: -0.02em; }
   .stat-label { margin-top: 8px; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: #9ca3af; font-weight: 500; }
   .stat-note { margin-top: 6px; font-size: 11px; color: #6b7280; }
 
   .industry-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 12px; }
-
   .industry-card {
-    background: var(--white);
-    border: 1px solid var(--rule);
-    border-radius: 8px;
-    padding: 20px 16px;
-    text-align: center;
-    transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
-    cursor: default;
+    background: var(--white); border: 1px solid var(--rule); border-radius: 8px;
+    padding: 20px 16px; text-align: center; transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
   }
-
   .industry-card:hover { border-color: var(--accent); box-shadow: 0 4px 16px rgba(200,169,110,0.15); transform: translateY(-2px); }
   .industry-icon { font-size: 28px; margin-bottom: 10px; display: block; }
   .industry-name { font-size: 12px; font-weight: 600; letter-spacing: 0.03em; color: var(--ink); line-height: 1.4; }
 
   .timeline { position: relative; padding-left: 0; }
-
-  .timeline-line {
-    position: absolute;
-    left: 130px; top: 0; bottom: 0;
-    width: 2px;
-    background: linear-gradient(to bottom, var(--accent), var(--rule));
-  }
-
+  .timeline-line { position: absolute; left: 130px; top: 0; bottom: 0; width: 2px; background: linear-gradient(to bottom, var(--accent), var(--rule)); }
   .timeline-item { display: grid; grid-template-columns: 120px 32px 1fr; gap: 0 16px; margin-bottom: 10px; align-items: start; }
   .timeline-date { text-align: right; padding-top: 18px; font-size: 11px; color: var(--muted); letter-spacing: 0.04em; font-weight: 500; line-height: 1.4; }
   .timeline-dot-col { display: flex; flex-direction: column; align-items: center; padding-top: 20px; }
   .timeline-dot { width: 14px; height: 14px; border-radius: 50%; background: var(--accent); border: 3px solid var(--paper); box-shadow: 0 0 0 2px var(--accent); flex-shrink: 0; z-index: 1; }
-
   .timeline-card {
-    background: var(--white);
-    border: 1px solid var(--rule);
-    border-radius: 8px;
-    padding: 18px 20px;
-    margin-bottom: 4px;
-    transition: border-color 0.2s, box-shadow 0.2s;
+    background: var(--white); border: 1px solid var(--rule); border-radius: 8px;
+    padding: 18px 20px; margin-bottom: 4px; transition: border-color 0.2s, box-shadow 0.2s;
   }
-
   .timeline-card:hover { border-color: var(--accent); box-shadow: 0 3px 14px rgba(200,169,110,0.12); }
   .timeline-role { font-family: 'Playfair Display', serif; font-size: 15px; font-weight: 700; letter-spacing: -0.01em; margin-bottom: 2px; }
   .timeline-company { font-size: 13px; color: var(--accent); font-weight: 600; margin-bottom: 8px; }
@@ -421,7 +476,7 @@
   .tl-tech { font-size: 10px; background: #f1f5f9; color: #475569; padding: 2px 7px; border-radius: 3px; font-weight: 500; }
 
   @media (max-width: 640px) {
-    .timeline-line { left: 0; display: none; }
+    .timeline-line { display: none; }
     .timeline-item { grid-template-columns: 1fr; }
     .timeline-date { text-align: left; padding-top: 0; margin-bottom: 4px; }
     .timeline-dot-col { display: none; }
@@ -431,10 +486,11 @@
     .header-meta { text-align: left; }
     header { padding: 50px 20px 40px; }
     .artifact-grid { grid-template-columns: 1fr; }
+    .pipeline { grid-template-columns: 1fr 1fr; }
+    .phase:nth-child(5) { border-right: none; grid-column: span 2; }
   }
 </style>
 </head>
-
 <body>
 
 <!-- HEADER -->
@@ -447,9 +503,7 @@
     </div>
     <div class="header-meta animate delay-2">
       <a class="linkedin-btn" href="https://www.linkedin.com/in/atiflodhi/" target="_blank">
-        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-        </svg>
+        <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
         Atif Lodhi
       </a>
     </div>
@@ -464,6 +518,7 @@
     <a href="#industries">Industries</a>
     <a href="#timeline">Experience</a>
     <a href="#competencies">Competencies</a>
+    <a href="#pmo">PMO Framework</a>
     <a href="#artifacts">Artifacts</a>
   </div>
 </nav>
@@ -493,7 +548,7 @@
       <div class="stat-card">
         <div class="stat-value">$55M</div>
         <div class="stat-label">Budget Managed</div>
-        <div class="stat-note">Across enterprise programs & portfolios</div>
+        <div class="stat-note">Across enterprise programs &amp; portfolios</div>
       </div>
       <div class="stat-card">
         <div class="stat-value">20+</div>
@@ -513,7 +568,7 @@
       <div class="stat-card">
         <div class="stat-value">25%+</div>
         <div class="stat-label">Sales Growth Driven</div>
-        <div class="stat-note">Through new business & digital initiatives</div>
+        <div class="stat-note">Through new business &amp; digital initiatives</div>
       </div>
     </div>
   </section>
@@ -603,7 +658,6 @@
           </div>
         </div>
       </div>
-
     </div>
   </section>
 
@@ -614,28 +668,107 @@
       <h2>Core Competencies</h2>
     </div>
     <div class="competency-grid">
-      <div class="comp-item"><span class="comp-dot"></span>Program & Project Delivery</div>
-      <div class="comp-item"><span class="comp-dot"></span>Product Management & Roadmapping</div>
-      <div class="comp-item"><span class="comp-dot"></span>Business & Systems Analysis</div>
-      <div class="comp-item"><span class="comp-dot"></span>PMO Governance & Reporting</div>
+      <div class="comp-item"><span class="comp-dot"></span>Program &amp; Project Delivery</div>
+      <div class="comp-item"><span class="comp-dot"></span>Product Management &amp; Roadmapping</div>
+      <div class="comp-item"><span class="comp-dot"></span>Business &amp; Systems Analysis</div>
+      <div class="comp-item"><span class="comp-dot"></span>PMO Governance &amp; Reporting</div>
       <div class="comp-item"><span class="comp-dot"></span>Enterprise Architecture (ArchiMate)</div>
-      <div class="comp-item"><span class="comp-dot"></span>Financial & Business Modeling</div>
-      <div class="comp-item"><span class="comp-dot"></span>Risk & Dependency Management (RAID)</div>
-      <div class="comp-item"><span class="comp-dot"></span>ITSM & Compliance (ISO 27001)</div>
-      <div class="comp-item"><span class="comp-dot"></span>Vendor & Procurement Management</div>
-      <div class="comp-item"><span class="comp-dot"></span>Business Transformation & KPI Design</div>
+      <div class="comp-item"><span class="comp-dot"></span>Financial &amp; Business Modeling</div>
+      <div class="comp-item"><span class="comp-dot"></span>Risk &amp; Dependency Management (RAID)</div>
+      <div class="comp-item"><span class="comp-dot"></span>ITSM &amp; Compliance (ISO 27001)</div>
+      <div class="comp-item"><span class="comp-dot"></span>Vendor &amp; Procurement Management</div>
+      <div class="comp-item"><span class="comp-dot"></span>Business Transformation &amp; KPI Design</div>
     </div>
+  </section>
+
+  <!-- PMO FRAMEWORK -->
+  <section id="pmo" style="margin-bottom: 50px;">
+    <div class="section-label">
+      <span class="num">06</span>
+      <h2>PMO Framework</h2>
+    </div>
+
+    <div class="pmo-intro">
+      <p>A structured end-to-end framework governing the full project lifecycle — from initial client intake and portfolio prioritisation through charter approval, staffing, execution, and delivery. Designed around PMBOK performance domains, this framework integrates governance workflows, scoring models, and delivery systems to ensure consistent, measurable outcomes across programs.</p>
+      <p>Click any phase to explore the activities, artifacts, and governance controls I apply at each stage.</p>
+    </div>
+
+    <div class="pipeline" id="pipeline">
+      <div class="phase active" onclick="selectPhase(0)">
+        <div class="phase-num">01</div>
+        <div class="phase-title">Project Intake</div>
+        <div class="phase-sub">Requests, forms &amp; automation</div>
+      </div>
+      <div class="phase" onclick="selectPhase(1)">
+        <div class="phase-num">02</div>
+        <div class="phase-title">Evaluation &amp; Scoring</div>
+        <div class="phase-sub">Prioritisation &amp; portfolio reports</div>
+      </div>
+      <div class="phase" onclick="selectPhase(2)">
+        <div class="phase-num">03</div>
+        <div class="phase-title">Approval &amp; Governance</div>
+        <div class="phase-sub">Review board &amp; workflow steps</div>
+      </div>
+      <div class="phase" onclick="selectPhase(3)">
+        <div class="phase-num">04</div>
+        <div class="phase-title">Charter &amp; Kick-off</div>
+        <div class="phase-sub">Charter sign-off &amp; activation</div>
+      </div>
+      <div class="phase" onclick="selectPhase(4)">
+        <div class="phase-num">05</div>
+        <div class="phase-title">Execution &amp; Delivery</div>
+        <div class="phase-sub">Plans, tracking &amp; closure</div>
+      </div>
+    </div>
+
+    <div class="detail-panel" id="detail-panel"></div>
+
+    <div class="domains-label">PMBOK Performance Domains — My Delivery Approach</div>
+    <div class="domains-grid">
+      <div class="domain-card">
+        <div class="domain-card-title">Stakeholder</div>
+        <div class="domain-card-sub">Business cases, communications, stakeholder registers, user stories</div>
+      </div>
+      <div class="domain-card">
+        <div class="domain-card-title">Team</div>
+        <div class="domain-card-sub">Project calendars, activity lists, resource &amp; capacity planning</div>
+      </div>
+      <div class="domain-card">
+        <div class="domain-card-title">Development &amp; Life Cycle</div>
+        <div class="domain-card-sub">Milestone mapping, roadmap monitoring, predictive &amp; adaptive methods</div>
+      </div>
+      <div class="domain-card">
+        <div class="domain-card-title">Planning</div>
+        <div class="domain-card-sub">WBS, Gantt charts, burndown, schedule &amp; budget management</div>
+      </div>
+      <div class="domain-card">
+        <div class="domain-card-title">Project Work</div>
+        <div class="domain-card-sub">Resource management, baselines, knowledge management, issue logging</div>
+      </div>
+      <div class="domain-card">
+        <div class="domain-card-title">Delivery</div>
+        <div class="domain-card-sub">WBS, velocity planning, user stories, Definition of Done, reporting</div>
+      </div>
+      <div class="domain-card">
+        <div class="domain-card-title">Measurement</div>
+        <div class="domain-card-sub">Milestone reporting, budget &amp; time tracking, Gantt &amp; burndown analysis</div>
+      </div>
+      <div class="domain-card">
+        <div class="domain-card-title">Uncertainty</div>
+        <div class="domain-card-sub">Risk registers, issue tracking, assumption &amp; dependency management</div>
+      </div>
+    </div>
+    <p class="nav-hint" style="margin-top: 16px;">Click any phase above to explore activities &amp; artifacts</p>
   </section>
 
   <!-- ARTIFACTS -->
   <section id="artifacts">
     <div class="section-label">
-      <span class="num">06</span>
+      <span class="num">07</span>
       <h2>Delivery Artifacts</h2>
     </div>
     <div class="artifact-grid">
 
-      <!-- BRD -->
       <div class="artifact-card">
         <div class="artifact-top">
           <div class="artifact-icon">📋</div>
@@ -652,7 +785,6 @@
         </div>
       </div>
 
-      <!-- PRD -->
       <div class="artifact-card">
         <div class="artifact-top">
           <div class="artifact-icon">🗺️</div>
@@ -669,7 +801,6 @@
         </div>
       </div>
 
-      <!-- SRS -->
       <div class="artifact-card">
         <div class="artifact-top">
           <div class="artifact-icon">⚙️</div>
@@ -686,7 +817,6 @@
         </div>
       </div>
 
-      <!-- RAID -->
       <div class="artifact-card">
         <div class="artifact-top">
           <div class="artifact-icon">🛡️</div>
@@ -703,7 +833,6 @@
         </div>
       </div>
 
-      <!-- Project Plan -->
       <div class="artifact-card">
         <div class="artifact-top">
           <div class="artifact-icon">📅</div>
@@ -720,7 +849,6 @@
         </div>
       </div>
 
-      <!-- KPI Dashboard -->
       <div class="artifact-card">
         <div class="artifact-top">
           <div class="artifact-icon">📊</div>
@@ -737,7 +865,6 @@
         </div>
       </div>
 
-      <!-- Architecture / SAD -->
       <div class="artifact-card">
         <div class="artifact-top">
           <div class="artifact-icon">🏗️</div>
@@ -754,7 +881,6 @@
         </div>
       </div>
 
-      <!-- Exec Deck -->
       <div class="artifact-card">
         <div class="artifact-top">
           <div class="artifact-icon">🎯</div>
@@ -771,7 +897,6 @@
         </div>
       </div>
 
-      <!-- Change Management Plan -->
       <div class="artifact-card">
         <div class="artifact-top">
           <div class="artifact-icon">🔄</div>
@@ -795,8 +920,78 @@
 
 <!-- FOOTER -->
 <footer>
-  <span>Atif Lodhi</span> · Delivery Playbook · Enterprise Transformation & Execution Framework
+  <span>Atif Lodhi</span> · Delivery Playbook · Enterprise Transformation &amp; Execution Framework
 </footer>
 
+<script>
+const phases = [
+  {
+    icon: "📥", tag: "Intake",
+    label: "Phase 01 — Project Intake",
+    title: "Project Request Submission",
+    body: "Clients submit project requests via a structured intake process using customised project request forms. Each submission captures project type, scope, goals, organisational risks, ROI, and stakeholder information. Automation rules are applied on submission — triggering notifications and routing the request into the appropriate approval workflow.",
+    artifacts: ["Project Request Form", "Client Portal Submission", "Project Type Definition", "Automation Rules", "Workflow Trigger"],
+    gov: ["Goals Documentation", "Organisational Risks", "ROI & Benefits Capture"]
+  },
+  {
+    icon: "📊", tag: "Evaluation",
+    label: "Phase 02 — Evaluation & Scoring",
+    title: "Prioritisation & Portfolio Analysis",
+    body: "Submitted requests are evaluated using project request scorecards and portfolio planning reports. The Priority Matrix compares requests across payback period, risk, and composite score. A Budget and Capacity Planner enables what-if scenario analysis alongside the live portfolio, supporting data-driven investment decisions.",
+    artifacts: ["Request Scorecard", "Priority Matrix Report", "Scoring Model (NPV / IRR)", "Budget & Capacity Planner", "Portfolio Report"],
+    gov: ["NPV / IRR Analysis", "Composite Scoring", "Portfolio Risk View"]
+  },
+  {
+    icon: "✅", tag: "Governance",
+    label: "Phase 03 — Approval & Governance",
+    title: "Review Board & Workflow Governance",
+    body: "The PMO Officer assigns requests to approval workflows and may edit request details at any step. Each workflow step defines what the reviewer can approve, reject, or escalate. Rejecting a step returns the request to the originator with notification. Approved requests proceed to charter; declined requests trigger automated email notification to the creator.",
+    artifacts: ["Workflow Template", "Approval Step Configuration", "Rejection Notification", "Workflow Audit Trail"],
+    gov: ["PMO Officer Oversight", "Step-level Permissions", "Escalation & Routing Rules"]
+  },
+  {
+    icon: "📋", tag: "Charter",
+    label: "Phase 04 — Charter & Kick-off",
+    title: "Project Charter Approval & Activation",
+    body: "Approved requests are staffed and converted to active projects. Projects begin inactive and are formally activated by the PMO Officer. I develop project charters covering start/end dates, time and expense budgets, description, requirements, stakeholders, goals, risks, and benefits. Charter approval gates the kick-off meeting and formal project launch.",
+    artifacts: ["Project Charter", "Start / End Dates", "Time & Expense Budget", "Stakeholder Register", "Requirements Document", "Kick-off Meeting Agenda"],
+    gov: ["PMO Activation Gate", "Charter Sign-off", "Scope Baseline", "Budget Baseline"]
+  },
+  {
+    icon: "🚀", tag: "Execution",
+    label: "Phase 05 — Execution & Delivery",
+    title: "Plans, Tracking & Project Closure",
+    body: "Projects are delivered through waterfall or agile plans depending on the delivery approach. Gantt charts, burndown charts, and backlog management support scheduling and velocity tracking. Risks are monitored in the Risk Register; issues are logged and escalated as needed. Time, expense, and budget performance are tracked continuously through to closure, with a final Definition of Done review.",
+    artifacts: ["Project Plan (Gantt / Agile)", "Risk Register", "Issue Log", "Burndown Chart", "RAID Log", "Time & Expense Tracking", "Status Reports", "Definition of Done"],
+    gov: ["Baseline Management", "Resource Capacity Planning", "Milestone Sign-off", "Closure Review"]
+  }
+];
+
+function selectPhase(idx) {
+  document.querySelectorAll('.phase').forEach((p, i) => p.classList.toggle('active', i === idx));
+  const d = phases[idx];
+  document.getElementById('detail-panel').innerHTML = `
+    <div class="detail-header">
+      <div class="detail-icon">${d.icon}</div>
+      <div class="detail-title-group">
+        <div class="detail-phase-label">${d.label}</div>
+        <div class="detail-title">${d.title}</div>
+      </div>
+      <span class="detail-tag">${d.tag}</span>
+    </div>
+    <div class="detail-body">${d.body}</div>
+    <div class="pill-section-label">Key Artifacts</div>
+    <div class="pill-list" style="margin-bottom:14px;">
+      ${d.artifacts.map(a => `<span class="pill">${a}</span>`).join('')}
+    </div>
+    <div class="pill-section-label">Governance &amp; Controls</div>
+    <div class="pill-list">
+      ${d.gov.map(g => `<span class="pill gov">${g}</span>`).join('')}
+    </div>
+  `;
+}
+
+selectPhase(0);
+</script>
 </body>
 </html>
